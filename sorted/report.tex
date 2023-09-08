@@ -1,0 +1,83 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{minted}
+\usepackage{graphicx}
+
+\begin{document}
+
+
+\title{
+    \textbf{Sorted report}
+}
+\author{Jonathan Karlsson}
+\date{Fall 2023}
+
+\maketitle
+
+\section*{Introduction}
+This assignemnt was to create a binary search algorithm and then comparing it to a linear search algorithm. The task also
+included creating a special algorithm using pointers for finding duplicates between two different arrays, and then comparing the speed of this algorithm with the 
+linear and binary search. 
+
+
+\section*{Implementation}
+\subsection*{Binary search}
+: in code exampels means that part of code that is not shown in the current example.\\ \\
+The binary search consisted of multiple if statements that are only possible when the array is sorted. The algorithm starts by setting 
+a first and last variable where the first is the start of the array and the last is the end. After that a while loop is run. Inside the 
+while loop the first thing that is done is figuring out the midpoint between the first and last element and saving that as index. Then the first
+if statement is checked which checks if the element has been found and if so break the loop.
+\begin{minted}{java}
+int first = 0;
+int last = array.length-1;
+while (true) {
+
+    int index = (last+first)/2 ;
+    if (array[index] == key) {
+        break;
+}
+    :
+    :
+}
+\end{minted}
+After the first if statement is checked, the second if statement is checked which checks if the key is larger than the element the index is pointing to,
+if it is the first gets changed to the element ahead of the index and the loop continues to the next iteration.
+\begin{minted}{java}
+while (true) {
+    :
+    :       
+    if (array[index] < key && index < last) {
+        first = index+1;
+        continue;
+    }
+    :
+    :
+}
+\end{minted}
+The final if statement checks if the key is smaller than the current element, if it is the last is moved to one lower than the index, and the loop continues. Finally if none of the 
+if statements were true, the element did not exist and false is returned, if the element was found the loop would have been broken in the first if statement and then true is returned.
+\begin{minted}{java}
+while(true) {
+    :
+    :
+        if (array[index] > key && index > first) {
+        last = index-1;
+        continue;
+}
+return false;
+
+}
+return true;  
+\end{minted}
+
+
+\section*{Benchmark}
+
+
+
+\section*{Conclusion}
+
+
+\end{document}
