@@ -36,7 +36,7 @@ public static ArrayList<Integer> dupliBin(int[] arrayone, int[] arraytwo) {
     return duplicates;
 
 }
-public static ArrayList<Integer> dupliNew(int[] arrayone, int[] arraytwo) {
+public static ArrayList<Integer> dupliPoint(int[] arrayone, int[] arraytwo) {
     int index1 = 0;
     int index2 = 0;
     ArrayList<Integer> duplicates = new ArrayList<Integer>();
@@ -60,7 +60,7 @@ public static ArrayList<Integer> dupliNew(int[] arrayone, int[] arraytwo) {
 
 }
 public static void main(String[] args) {
-    int[] sizes = {100,200,300,400,500,600,700,800,900,1000,1100,1200,1300,1400,1500,1600,3200,6400,12800,25600};
+    int[] sizes = {100,200,300,400,500,600,700,800,900,1000,1100,1200,1300,1400,1500,1600,3200,6400,12800,25600,51200,1000000,2000000,8000000};
     
     for ( int n : sizes) {
 
@@ -73,36 +73,38 @@ public static void main(String[] args) {
 	    
 	    double minlin = Double.POSITIVE_INFINITY;
         double minbin = Double.POSITIVE_INFINITY;
-        double minnew = Double.POSITIVE_INFINITY;
-
+        double minpoi = Double.POSITIVE_INFINITY;
+        double tlin = 0;
 
 		
         for (int i = 0; i < k; i++) {
             int[] array1 = sorted(n);
             int[] array2 = sorted(n);
             System.gc();   
+            if(n < 27000) {
             long tlin0 = System.nanoTime();
             dupliLin(array1, array2);
             long tlin1 = System.nanoTime();
-            double tlin = (tlin1 - tlin0);
+            tlin = (tlin1 - tlin0);
+            }
             System.gc();
             long tbin0 = System.nanoTime();
             dupliBin(array1, array2);
             long tbin1 = System.nanoTime();
             double tbin = (tbin1 - tbin0);
             System.gc();
-            long tnew0 = System.nanoTime();
-            dupliNew(array1, array2);
-            long tnew1 = System.nanoTime();
-            double tnew = (tnew1 - tnew0);
+            long tpoi0 = System.nanoTime();
+            dupliPoint(array1, array2);
+            long tpoi1 = System.nanoTime();
+            double tpoi = (tpoi1 - tpoi0);
         if (tlin < minlin) {
 				minlin = tlin;
         }
         if (tbin  < minbin) {
             minbin = tbin;
         }
-        if (tnew < minnew) {
-            minnew = tnew;
+        if (tpoi < minpoi) {
+            minpoi = tpoi;
         }
 		
     	    
@@ -113,7 +115,7 @@ public static void main(String[] args) {
 	    
 
 
-	    System.out.printf("%8.0f\n" , (minnew/1000));	
+	    System.out.printf("%8.0f\n" , (minpoi/1000));	
     }
 }
 }
