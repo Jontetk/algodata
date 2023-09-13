@@ -76,10 +76,10 @@ public static void main(String[] args) {
         double minpoi = Double.POSITIVE_INFINITY;
         double tlin = 0;
 
-		
+        int[] array1 = sorted(n);
+        int[] array2 = sorted(n);
         for (int i = 0; i < k; i++) {
-            int[] array1 = sorted(n);
-            int[] array2 = sorted(n);
+ 
             System.gc();   
             if(n < 27000) {
             long tlin0 = System.nanoTime();

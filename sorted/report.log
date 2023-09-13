@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.8.28)  8 SEP 2023 23:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.8.28)  9 SEP 2023 16:45
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -258,7 +258,52 @@ LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10.95> not available
 {c:/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}])
 \openout3 = `report.pyg'.
 
- (./_minted-report/CC038FE51E410DE52DFD252BBCBFC78B671BD881739F9CB30E56E97DE4CB6105.pygtex) [2] (./report.aux)
+ (./_minted-report/CC038FE51E410DE52DFD252BBCBFC78B671BD881739F9CB30E56E97DE4CB6105.pygtex)
+\openout3 = `report.pyg'.
+
+ (./_minted-report/CA634ADFE031988043FD1D697F46E3F0671BD881739F9CB30E56E97DE4CB6105.pygtex [2])
+\openout3 = `report.pyg'.
+
+ (./_minted-report/9B4E9E3E888460D19F9B59ECB8E6D751671BD881739F9CB30E56E97DE4CB6105.pygtex)
+\openout3 = `report.pyg'.
+
+ (./_minted-report/6B13CF05B244EF0E68CCEA855A8DF274671BD881739F9CB30E56E97DE4CB6105.pygtex)
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <10.95> on input line 131.
+ [3] (./benching.tex
+\gptboxheight=\skip55
+\gptboxwidth=\skip56
+\gptboxtext=\box62
+Package epstopdf Info: Source file: <benching.eps>
+(epstopdf)                    date: 2023-09-09 16:21:29
+(epstopdf)                    size: 25690 bytes
+(epstopdf)             Output file: <benching-eps-converted-to.pdf>
+(epstopdf)                    date: 2023-09-09 16:21:32
+(epstopdf)                    size: 6623 bytes
+(epstopdf)             Command: <epstopdf --outfile=benching-eps-converted-to.pdf benching.eps>
+(epstopdf)             \includegraphics on input line 119.
+Package epstopdf Info: Output file is already uptodate.
+<benching-eps-converted-to.pdf, id=16, 361.35pt x 252.945pt>
+File: benching-eps-converted-to.pdf Graphic file (type pdf)
+<use benching-eps-converted-to.pdf>
+Package pdftex.def Info: benching-eps-converted-to.pdf  used on input line 119.
+(pdftex.def)             Requested size: 361.35463pt x 252.94823pt.
+) [4{c:/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc} <./benching-eps-converted-to.pdf>] (./duplicatestes.tex
+Package epstopdf Info: Source file: <duplicatestes.eps>
+(epstopdf)                    date: 2023-09-09 16:33:56
+(epstopdf)                    size: 23095 bytes
+(epstopdf)             Output file: <duplicatestes-eps-converted-to.pdf>
+(epstopdf)                    date: 2023-09-09 16:33:58
+(epstopdf)                    size: 5994 bytes
+(epstopdf)             Command: <epstopdf --outfile=duplicatestes-eps-converted-to.pdf duplicatestes.eps>
+(epstopdf)             \includegraphics on input line 112.
+Package epstopdf Info: Output file is already uptodate.
+<duplicatestes-eps-converted-to.pdf, id=27, 361.35pt x 252.945pt>
+File: duplicatestes-eps-converted-to.pdf Graphic file (type pdf)
+<use duplicatestes-eps-converted-to.pdf>
+Package pdftex.def Info: duplicatestes-eps-converted-to.pdf  used on input line 112.
+(pdftex.def)             Requested size: 361.35463pt x 252.94823pt.
+) [5 <./duplicatestes-eps-converted-to.pdf>] [6] [7] (./report.aux)
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-08-11>
@@ -267,18 +312,18 @@ runsystem(del report.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 5829 strings out of 475188
- 110123 string characters out of 5767814
- 1922248 words of memory out of 5000000
- 27043 multiletter control sequences out of 15000+600000
- 562791 words of font info for 52 fonts, out of 8000000 for 9000
+ 5984 strings out of 475188
+ 114463 string characters out of 5767814
+ 1933248 words of memory out of 5000000
+ 27179 multiletter control sequences out of 15000+600000
+ 564401 words of font info for 57 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 77i,6n,79p,400b,510s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on report.pdf (2 pages, 57717 bytes).
+ 77i,11n,79p,420b,510s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
+Output written on report.pdf (7 pages, 142909 bytes).
 PDF statistics:
- 31 PDF objects out of 1000 (max. 8388607)
- 18 compressed objects within 1 object stream
+ 85 PDF objects out of 1000 (max. 8388607)
+ 53 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 11 words of extra memory for PDF output out of 10000 (max. 10000000)
 

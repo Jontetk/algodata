@@ -1,9 +1,5 @@
 % GNUPLOT: LaTeX picture with Postscript
 \begingroup
-  % Encoding inside the plot.  In the header of your document, this encoding
-  % should to defined, e.g., by using
-  % \usepackage[cp1252,<other encodings>]{inputenc}
-  \inputencoding{cp1252}%
   \makeatletter
   \providecommand\color[2][]{%
     \GenericError{(gnuplot) \space\space\space\@spaces}{%
@@ -88,27 +84,39 @@
     \gplgaddtomacro\gplbacktext{%
       \csname LTb\endcsname%%
       \put(1210,704){\makebox(0,0)[r]{\strut{}$1$}}%
-      \put(1210,1390){\makebox(0,0)[r]{\strut{}$10$}}%
-      \put(1210,2076){\makebox(0,0)[r]{\strut{}$100$}}%
-      \put(1210,2762){\makebox(0,0)[r]{\strut{}$1000$}}%
-      \put(1210,3447){\makebox(0,0)[r]{\strut{}$10000$}}%
-      \put(1210,4133){\makebox(0,0)[r]{\strut{}$100000$}}%
-      \put(1210,4819){\makebox(0,0)[r]{\strut{}$1\times10^{6}$}}%
+      \put(1210,1161){\makebox(0,0)[r]{\strut{}$10$}}%
+      \put(1210,1618){\makebox(0,0)[r]{\strut{}$100$}}%
+      \put(1210,2076){\makebox(0,0)[r]{\strut{}$1000$}}%
+      \put(1210,2533){\makebox(0,0)[r]{\strut{}$10000$}}%
+      \put(1210,2990){\makebox(0,0)[r]{\strut{}$100000$}}%
+      \put(1210,3447){\makebox(0,0)[r]{\strut{}$1\times10^{6}$}}%
+      \put(1210,3905){\makebox(0,0)[r]{\strut{}$1\times10^{7}$}}%
+      \put(1210,4362){\makebox(0,0)[r]{\strut{}$1\times10^{8}$}}%
+      \put(1210,4819){\makebox(0,0)[r]{\strut{}$1\times10^{9}$}}%
       \put(1342,484){\makebox(0,0){\strut{}$100$}}%
-      \put(2434,484){\makebox(0,0){\strut{}$1000$}}%
-      \put(3526,484){\makebox(0,0){\strut{}$10000$}}%
-      \put(4619,484){\makebox(0,0){\strut{}$100000$}}%
-      \put(5711,484){\makebox(0,0){\strut{}$1\times10^{6}$}}%
-      \put(6803,484){\makebox(0,0){\strut{}$1\times10^{7}$}}%
+      \put(2122,484){\makebox(0,0){\strut{}$1000$}}%
+      \put(2902,484){\makebox(0,0){\strut{}$10000$}}%
+      \put(3682,484){\makebox(0,0){\strut{}$100000$}}%
+      \put(4463,484){\makebox(0,0){\strut{}$1\times10^{6}$}}%
+      \put(5243,484){\makebox(0,0){\strut{}$1\times10^{7}$}}%
+      \put(6023,484){\makebox(0,0){\strut{}$1\times10^{8}$}}%
+      \put(6803,484){\makebox(0,0){\strut{}$1\times10^{9}$}}%
     }%
     \gplgaddtomacro\gplfronttext{%
       \csname LTb\endcsname%%
-      \put(209,2761){\rotatebox{-270}{\makebox(0,0){\strut{}time in {/Symbol m}s}}}%
+      \put(209,2761){\rotatebox{-270}{\makebox(0,0){\strut{}time in µs}}}%
       \put(4072,154){\makebox(0,0){\strut{}n}}%
       \csname LTb\endcsname%%
-      \put(2398,2981){\makebox(0,0)[r]{\strut{}linear}}%
+      \put(2266,3091){\makebox(0,0)[r]{\strut{}linear}}%
       \csname LTb\endcsname%%
-      \put(2398,2761){\makebox(0,0)[r]{\strut{}binary}}%
+      \put(2266,2871){\makebox(0,0)[r]{\strut{}binary}}%
       \csname LTb\endcsname%%
-      \put(2398,2541){\makebox(0,0)[r]{\strut{}special}}%
+      \put(2266,2651){\makebox(0,0)[r]{\strut{}n}}%
+      \csname LTb\endcsname%%
+      \put(2266,2431){\makebox(0,0)[r]{\strut{}log(n)}}%
     }%
+    \gplbacktext
+    \put(0,0){\includegraphics[width={360.00bp},height={252.00bp}]{benching}}%
+    \gplfronttext
+  \end{picture}%
+\endgroup
