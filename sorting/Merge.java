@@ -1,5 +1,5 @@
-public class Merge {
-    public static void sort(int[] org) {
+public class Merge extends Sort {
+    public void sort(int[] org) {
         if (org.length == 0)
         return;
         int[] aux = new int[org.length];
@@ -33,14 +33,14 @@ public class Merge {
         // if i is greater than mid then
         // move the j'th item to the org array, update j
             if(i > mid) {
-                org[j] = aux[j];
+                org[k] = aux[j];
                 j++;
             }
 
         // else if j is greate than hi then
         // move the i'th item to the org array, update i
            else if(j > hi) {
-                org[i] = aux[i];
+                org[k] = aux[i];
                 i++;
             }
 
@@ -48,14 +48,14 @@ public class Merge {
         // else if the i'th item is smaller than the j'th item,
         // move the i'th item to the org array, update i
            else if(aux[i] < aux[j]) {
-                org[i] = aux[i];
+                org[k] = aux[i];
                 i++;
            }
 
         // else
         // move the j'th item to the org array, update j
            else {
-            org[j] = aux[j];
+            org[k] = aux[j];
             j++;
            }
         }
