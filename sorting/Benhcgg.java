@@ -54,6 +54,10 @@ public class Benhcgg {
             double minmer = benchi(mer, array, k);
     
             System.out.printf("%8.0f" , (minmer/1000));	 
+            Sort merAlt = new MergeAlt();
+            double minmerAlt = benchi(merAlt, array, k);
+    
+            System.out.printf("%8.0f" , (minmerAlt/1000));	 
 	    
             System.out.println();
         }

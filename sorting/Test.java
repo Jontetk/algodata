@@ -6,7 +6,7 @@ public class Test {
         int[] arr3 = arr.clone();
         Sort selection = new Selection();
         Sort insertion = new Insertion();
-        Sort merge = new Merge();
+        Sort merge = new MergeAlt();
 
         selection.sort(arr1);
         insertion.sort(arr2);
