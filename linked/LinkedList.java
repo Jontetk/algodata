@@ -1,16 +1,19 @@
 public class LinkedList {
     Cell first = null;
-    private class Cell {
-        int head;
-        Cell tail;
-    
-        Cell(int val, Cell tl) {
-            head = val;
-            tail = tl;
-        }
-    
+    LinkedList(){
         
     }
+    LinkedList(int n){
+        this(0,n);
+    }
+
+    LinkedList(int m, int n) {
+        Cell last = null;
+        for (int i = m; i < n; i++) {
+            last = new Cell(i, last);
+        }
+        first = last;
+        }
     public void add(int item) {
         this.first = new Cell(item, this.first);
     }
@@ -34,13 +37,20 @@ public class LinkedList {
         }
     public void remove(int item) {
         Cell next = this.first;
+        Cell prev = null;
         while (next != null){
             if (next.head == item){
-                next.tail = next.tail.tail;
+                if (prev != null)
+                    prev.tail = next.tail;
+                else
+                    this.first = next.tail;
                 break;
             }
 
+            
+            prev = next;
             next = next.tail;   
+            
         }
     }
     public void append(LinkedList b) {
