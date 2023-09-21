@@ -7,9 +7,8 @@ public class LinkedStack {
         this.stack.add(value);
     }
     public int pop() {
-        int value = this.stack.first.head;
-        this.stack.first = this.stack.first.tail;
-        return value;
+    
+        return this.stack.removeIndex(0);
     }
 
 

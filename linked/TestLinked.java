@@ -25,7 +25,10 @@ public class TestLinked {
         System.out.println(list.length());
         LinkedList list2 = new LinkedList(3,10);
         list.append(list2);
+        System.out.println(list.removeIndex(0));
+        System.out.println(list.removeIndex(5));
         next = list.first;
+
         while (next != null){
             System.out.println(next.head);
 

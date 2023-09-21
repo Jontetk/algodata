@@ -53,6 +53,30 @@ public class LinkedList {
             
         }
     }
+    public int removeIndex(int index) {
+        int value = 0;
+        Cell next = this.first;
+        Cell prev = null;
+        for (int i = 0; i<index &&next != null; i++) {
+            prev = next;
+            next = next.tail;
+        
+        }
+
+
+        if (next != null && next.tail != null && prev != null) {
+            value = next.head;
+            prev.tail = next.tail;
+        }
+        else if (prev == null) {
+            value = next.head;
+            first = next.tail;
+        }
+        return value;
+
+
+    }
+
     public void append(LinkedList b) {
         Cell next = this.first;
         while (next.tail != null) {
