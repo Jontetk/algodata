@@ -60,10 +60,7 @@ public class LinkedList {
         for (int i = 0; i<index &&next != null; i++) {
             prev = next;
             next = next.tail;
-        
         }
-
-
         if (next != null && next.tail != null && prev != null) {
             value = next.head;
             prev.tail = next.tail;
@@ -71,6 +68,10 @@ public class LinkedList {
         else if (prev == null) {
             value = next.head;
             first = next.tail;
+        }
+        else if (next.tail == null) {
+            value = next.head;
+            prev.tail = null;
         }
         return value;
 
@@ -80,7 +81,7 @@ public class LinkedList {
     public void append(LinkedList b) {
         Cell next = this.first;
         while (next.tail != null) {
-        next = next.tail;
+            next = next.tail;
         }
         next.tail = b.first;
         b.first = null;

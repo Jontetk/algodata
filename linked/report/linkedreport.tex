@@ -1,0 +1,145 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{minted}
+\usepackage{graphicx}
+
+\begin{document}
+
+
+\title{
+    \textbf{Linked report}
+}
+\author{Jonathan Karlsson}
+\date{Fall 2023}
+
+\maketitle
+
+\section*{Introduction}
+This assignment involved creating a linked list and then adding functionality to it and benchmarking.
+
+
+\section*{Implementation}
+The linked list required five total methods according to the assignment. A sixth method, removeIndex was added for the stack part of the assignment.
+The first method add is a method required for adding cells to the start of the sequence. It only sets the first cell as a new cell with the item as head and 
+the previous first cell as the tail. 
+\begin{minted}{java}
+public void add(int item) {
+    this.first = new Cell(item, this.first);
+}
+\end{minted}
+The second method length works by going through every cell until the next is null and adding one to a variable named len
+after every element has been counted len is returned.
+\begin{minted}{java}
+public int length() {
+    Cell next = this.first;
+    int len = 0;
+    while (next != null) {
+        next = next.tail;
+        len++;
+    }
+    return len;
+    }
+\end{minted}
+The third method, find works in a similar way to length but instead of just adding one to a total until it has gone through all elements, 
+it checks each cell if its head is the same as the searched for value, if it is the method returns true, otherwise it is false.
+\begin{minted}{java}
+public boolean find(int item) {
+    Cell next = this.first;
+    while (next != null) {
+        if (next.head == item)
+            return true;
+        next = next.tail;   
+    }
+    return false;
+    }
+\end{minted}
+The fourth method, remove works in a similar way to find when finding the cell, however when it is found it instead uses a variable that saves the previous cell to remove the 
+cell by setting the previous cell to point at the next cells tail. If the previous cell is null the first cell instead is pointed to next.tail. Each iteration both the previous and 
+the next cell jump forwards in the list by one.
+\begin{minted}{java}
+public void remove(int item) {
+    Cell next = this.first;
+    Cell prev = null;
+    while (next != null) {
+        if (next.head == item) {
+            if (prev != null)
+                prev.tail = next.tail;
+            else
+                this.first = next.tail;
+            break;
+        }
+        prev = next;
+        next = next.tail;   
+        
+    }
+}
+\end{minted}
+The fifth method append is very simple. It works by first using a while loop to get to the end of the current list by increasing next as long as next.tail is not
+null. It then sets next.tail to the first cell of the second list and finally sets the second lists first cell to null.
+\begin{minted}{java}
+public void append(LinkedList b) {
+    Cell next = this.first;
+    while (next.tail != null) {
+        next = next.tail;
+    }
+    next.tail = b.first;
+    b.first = null;
+}
+\end{minted}
+The sixth method removeIndex starts by moving both prev and next forward until next is at the index that should be removed. Then it checks that the index can actually be removed,
+such as that next is not null which would mean that the index was one past the end of the list or that next.tail is not null, which would mean that the index is the final index, or that
+prev is not null which would mean the index was 0. If the first if statement was true the value is extracted and the previous tail is set to the next tail. Else if the 
+prev was null the value is extracted and the first is set to next.tail which is the second tail. The final else if says that if the next.tail is null we are at the final cell so extract the value and remove it by setting
+prev.tail to null. 
+\begin{minted}{java}
+    public int removeIndex(int index) {
+    int value = 0;
+    Cell next = this.first;
+    Cell prev = null;
+    for (int i = 0; i<index &&next != null; i++) {
+        prev = next;
+        next = next.tail;
+    }
+    if (next != null && next.tail != null && prev != null) {
+        value = next.head;
+        prev.tail = next.tail;
+    }
+    else if (prev == null) {
+        value = next.head;
+        first = next.tail;
+    }
+    else if (next.tail == null) {
+        value = next.head;
+        prev.tail = null;
+    }
+    return value;
+}
+\end{minted}
+The linked stack was created by using a linked list, and when pushing using the LinkedList method add to add the element
+as the first cell, and when popping using the removeIndex to remove the first value and extracting its value. As the linked list can change size as it is possible 
+to set the first element as the second and then create a new first to point to the second the list does not need to allocate different size as with arrays.
+\begin{minted}{java}
+    public void push(int value) {
+        this.stack.add(value);
+    }
+    public int pop() {
+        return this.stack.removeIndex(0);
+    }    
+\end{minted}
+\section*{Benchmark}
+The benchmarks on this assignment was large, first the append method of linked lists were benchmaked,
+with first appending a 
+
+
+\section*{Conclusion}
+
+
+
+
+\newpage
+\section*{Full table}
+
+
+\end{document}
