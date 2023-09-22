@@ -49,11 +49,48 @@ public class TestDoubly {
         Cell end = next;
         list.unlink(next.prev.prev.prev);
         list.unlink(end);
+        Cell savedFirst = list.first;
         list.unlink(list.first);
         
         printLinked(list);
+        list.insert(savedFirst);
+        printLinked(list);
+
+        SingleLinkedList listSingle = new SingleLinkedList(10);
+        
 
 
+
+        
+        System.out.println();
+        CellSingle nextsing = listSingle.first;
+        while (nextsing!= null) {
+            System.out.println(nextsing.head);
+            nextsing = nextsing.tail;
+            
+        }
+        CellSingle savedSingle = listSingle.first;
+        listSingle.unlink(listSingle.first);
+        listSingle.unlink(listSingle.first.tail.tail.tail);
+        listSingle.unlink(listSingle.first.tail.tail.tail);
+
+        listSingle.unlink(listSingle.first.tail.tail.tail.tail.tail);
+        listSingle.unlink(listSingle.first.tail.tail.tail.tail.tail);
+        listSingle.unlink(listSingle.first.tail.tail.tail.tail.tail);
+        System.out.println();
+        nextsing = listSingle.first;
+        while (nextsing!= null) {
+            System.out.println(nextsing.head);
+            nextsing = nextsing.tail;
+        }
+        listSingle.insert(savedSingle);
+    
+        System.out.println();
+        nextsing = listSingle.first;
+        while (nextsing!= null) {
+            System.out.println(nextsing.head);
+            nextsing = nextsing.tail;
+        }
 
     }
 }

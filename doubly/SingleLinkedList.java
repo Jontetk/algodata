@@ -1,24 +1,24 @@
-public class LinkedList {
-    Cell first = null;
-    LinkedList(){
+public class SingleLinkedList {
+    CellSingle first = null;
+    SingleLinkedList(){
         
     }
-    LinkedList(int n){
+    SingleLinkedList(int n){
         this(0,n);
     }
 
-    LinkedList(int m, int n) {
-        Cell last = null;
+    SingleLinkedList(int m, int n) {
+        CellSingle last = null;
         for (int i = m; i < n; i++) {
-            last = new Cell(i, last);
+            last = new CellSingle(i, last);
         }
         first = last;
         }
     public void add(int item) {
-        this.first = new Cell(item, this.first);
+        this.first = new CellSingle(item, this.first);
     }
     public int length() {
-        Cell next = this.first;
+        CellSingle next = this.first;
         int len = 0;
         while (next != null){
             next = next.tail;
@@ -27,7 +27,7 @@ public class LinkedList {
         return len;
         }
     public boolean find(int item) {
-        Cell next = this.first;
+        CellSingle next = this.first;
         while (next != null){
             if (next.head == item)
                 return true;
@@ -36,8 +36,8 @@ public class LinkedList {
         return false;
         }
     public void remove(int item) {
-        Cell next = this.first;
-        Cell prev = null;
+        CellSingle next = this.first;
+        CellSingle prev = null;
         while (next != null){
             if (next.head == item){
                 if (prev != null)
@@ -55,8 +55,8 @@ public class LinkedList {
     }
     public int removeIndex(int index) {
         int value = 0;
-        Cell next = this.first;
-        Cell prev = null;
+        CellSingle next = this.first;
+        CellSingle prev = null;
         for (int i = 0; i<index &&next != null; i++) {
             prev = next;
             next = next.tail;
@@ -78,8 +78,8 @@ public class LinkedList {
 
     }
 
-    public void append(LinkedList b) {
-        Cell next = this.first;
+    public void append(SingleLinkedList b) {
+        CellSingle next = this.first;
         while (next.tail != null) {
             next = next.tail;
         }
@@ -87,9 +87,9 @@ public class LinkedList {
         b.first = null;
     }
 
-    public void unlink(Cell cell) {
-        Cell next = this.first;
-        Cell prev = null;
+    public void unlink(CellSingle cell) {
+        CellSingle next = this.first;
+        CellSingle prev = null;
         while (next != null){
             if (next.equals(cell)){
                 if (prev != null)
@@ -104,6 +104,11 @@ public class LinkedList {
             next = next.tail;   
             
         }
+    }
+    public void insert(CellSingle cell) {
+        cell.tail = this.first;
+        this.first = cell;
+
     }
         
     }

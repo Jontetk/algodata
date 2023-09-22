@@ -78,4 +78,12 @@ public class Doubly {
                     this.first.prev = null;   
                 }  
     }
+    public void insert(Cell cell) {
+        if(this.first!= null)
+            this.first.prev = cell;
+        cell.next = this.first;
+        this.first = cell;
+        this.first.prev = null; //maybe not neccesary, depends on function.
+    }
+
 }
