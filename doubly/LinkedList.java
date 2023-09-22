@@ -9,26 +9,19 @@ public class LinkedList {
 
     LinkedList(int m, int n) {
         Cell last = null;
-        Cell lastcopy = null;
         for (int i = m; i < n; i++) {
-            lastcopy = last;
-            last = new Cell(i, last, null);
-            if (lastcopy != null)
-                lastcopy.prev = last;            
+            last = new Cell(i, last);
         }
         first = last;
         }
     public void add(int item) {
-        Cell firstcopy = this.first;
-        this.first = new Cell(item, this.first,null);
-        if (firstcopy != null)
-            firstcopy.prev = first;
+        this.first = new Cell(item, this.first);
     }
     public int length() {
         Cell next = this.first;
         int len = 0;
         while (next != null){
-            next = next.next;
+            next = next.tail;
             len++;
         }
         return len;
@@ -38,27 +31,79 @@ public class LinkedList {
         while (next != null){
             if (next.head == item)
                 return true;
-            next = next.next;   
+            next = next.tail;   
         }
         return false;
         }
     public void remove(int item) {
         Cell next = this.first;
+        Cell prev = null;
         while (next != null){
             if (next.head == item){
-                if (next.prev != null){
-                    next.prev.next = next.next;
-                    next.next.prev = next.prev;
-                    }
-                else{
-                    this.first = next.next;
-                    this.first.prev = null;   
-                }
+                if (prev != null)
+                    prev.tail = next.tail;
+                else
+                    this.first = next.tail;
                 break;
             }
 
-             
+            
+            prev = next;
+            next = next.tail;   
             
         }
     }
-}
+    public int removeIndex(int index) {
+        int value = 0;
+        Cell next = this.first;
+        Cell prev = null;
+        for (int i = 0; i<index &&next != null; i++) {
+            prev = next;
+            next = next.tail;
+        }
+        if (next != null && next.tail != null && prev != null) {
+            value = next.head;
+            prev.tail = next.tail;
+        }
+        else if (prev == null) {
+            value = next.head;
+            first = next.tail;
+        }
+        else if (next.tail == null) {
+            value = next.head;
+            prev.tail = null;
+        }
+        return value;
+
+
+    }
+
+    public void append(LinkedList b) {
+        Cell next = this.first;
+        while (next.tail != null) {
+            next = next.tail;
+        }
+        next.tail = b.first;
+        b.first = null;
+    }
+
+    public void unlink(Cell cell) {
+        Cell next = this.first;
+        Cell prev = null;
+        while (next != null){
+            if (next.equals(cell)){
+                if (prev != null)
+                    prev.tail = next.tail;
+                else
+                    this.first = next.tail;
+                break;
+            }
+
+            
+            prev = next;
+            next = next.tail;   
+            
+        }
+    }
+        
+    }

@@ -86,5 +86,24 @@ public class LinkedList {
         next.tail = b.first;
         b.first = null;
     }
+
+    public void unlink(Cell cell) {
+        Cell next = this.first;
+        Cell prev = null;
+        while (next != null){
+            if (next.equals(cell)){
+                if (prev != null)
+                    prev.tail = next.tail;
+                else
+                    this.first = next.tail;
+                break;
+            }
+
+            
+            prev = next;
+            next = next.tail;   
+            
+        }
+    }
         
     }
