@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kd}{public}\PYG{+w}{ }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{insert}\PYG{p}{(}\PYG{n}{Cell}\PYG{+w}{ }\PYG{n}{cell}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{k}{this}\PYG{p}{.}\PYG{n+na}{first}\PYG{o}{!=}\PYG{+w}{ }\PYG{k+kc}{null}\PYG{p}{)}
+\PYG{+w}{        }\PYG{k}{this}\PYG{p}{.}\PYG{n+na}{first}\PYG{p}{.}\PYG{n+na}{prev}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{cell}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{cell}\PYG{p}{.}\PYG{n+na}{next}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{this}\PYG{p}{.}\PYG{n+na}{first}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{this}\PYG{p}{.}\PYG{n+na}{first}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{cell}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{this}\PYG{p}{.}\PYG{n+na}{first}\PYG{p}{.}\PYG{n+na}{prev}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k+kc}{null}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{//maybe not neccesary, depends on function.}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

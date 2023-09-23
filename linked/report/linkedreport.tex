@@ -129,17 +129,86 @@ to set the first element as the second and then create a new first to point to t
     }    
 \end{minted}
 \section*{Benchmark}
-The benchmarks on this assignment was large, first the append method of linked lists were benchmaked,
-with first appending a 
+Many different scenarios were benchmarked for this assignment. First was the scenario when appending a 100 element linked list to a link list of n size. 
+Then appending the n sized linkedlist to the 100 element linked list. Then doing the same with arrays. The final two benchmarks were to build a linked list of n 
+size and allocate an array of n size. Full table in full tables section.
+\begin{table}[h]
+    \begin{center}
+    \scalebox{0.55}{
+    \begin{tabular}{l|c|c|c|c|c|c}
+    \textbf{n} & \textbf{Append 100 to n ({\textmu}s)} & \textbf{Append n to 100({\textmu}s)}& \textbf{Append 100 to n({\textmu}s)}& \textbf{Append n to 100({\textmu}s)}& \textbf{Build LinkedList({\textmu}s)}& \textbf{Allocate array({\textmu}s)}\\
+    \hline
+    100  &     1 &      0 &      2 &      2  &     3 &      2 \\
+    200  &     1 &      0 &      2 &      3  &     4 &      2 \\
+    300  &     1 &      1 &      2 &      3  &     4 &      2 \\
+   1000  &     2 &      0 &      3 &      3  &     6 &      2 \\
+   1500  &     2 &      0 &      3 &      3  &     8 &      2 \\
+   1600  &     3 &      1 &      3 &      3  &     9 &      2 \\
+  12800  &    18 &      0 &      6 &      9  &    35 &      3 \\
+ 102400  &   165 &      0 &     29 &     52  &   223 &     10 \\
+ 204800  &   317 &      0 &     60 &    103  &  7606 &     18 \\
 
+    \end{tabular}
+    }
+    \caption{The result of the benchmark between linked lists and arrays}
+    \label{tab:table1}
+    \end{center}
+\end{table}
 
+{\noindent}It seems that the append 100 to n is slower than append n to 100, this would be because 
+it is necessary to first go through the entire linked list to get to the end before appending, so when the linked list is larger
+it takes longer to find the end. The arrays seem to have similar times which does make sense as both of the arrays have to be copied to a new array when appending.
+This means that both the small and the large array is copied and it does not matter which is chosen first. When building the linkedlist it takes a lot longer than when allocating an array.
+This is becuase the linked list has to add cells for as long as it is while the array only has to allocate a piece of memory which it will use later.
+I also implemented a stack, which would definietly be faster than the previous dynamic stack which was made, this is because a stack using LinkedList can grow and shrink in size 
+without having to copy any elements.
 \section*{Conclusion}
+Linked lists are definietly useful for some parts, for example if you want a list that is able to change its size such as the dynamic stack or when you want to append something, however they easily 
+become a lot less useful whenever they grow large, as unless you only need the first element, as with a stack it will take longer and longer to get to the end of a linked list. When needing to save and work with 
+large amount of data it is probably more useful to use an array, as it will be much quicker when finding the data, especially towards the end.
+
 
 
 
 
 \newpage
 \section*{Full table}
+\begin{table}[h]
+    \begin{center}
+    \scalebox{0.55}{
+    \begin{tabular}{l|c|c|c|c|c|c}
+    \textbf{n} & \textbf{Append 100 to n ({\textmu}s)} & \textbf{Append n to 100({\textmu}s)}& \textbf{Append 100 to n({\textmu}s)}& \textbf{Append n to 100({\textmu}s)}& \textbf{Build LinkedList({\textmu}s)}& \textbf{Allocate array({\textmu}s)}\\
+    \hline
+    100  &     1 &      0 &      2 &      2  &     3 &      2 \\
+    200  &     1 &      0 &      2 &      3  &     4 &      2 \\
+    300  &     1 &      1 &      2 &      3  &     4 &      2 \\
+    400  &     1 &      0 &      2 &      3  &     5 &      2 \\
+    500  &     1 &      0 &      3 &      3  &     5 &      2 \\
+    600  &     1 &      0 &      3 &      3  &     5 &      2 \\
+    700  &     1 &      0 &      3 &      3  &     5 &      2 \\
+    800  &     1 &      0 &      3 &      3  &     6 &      2 \\
+    900  &     2 &      0 &      3 &      3  &     6 &      2 \\
+   1000  &     2 &      0 &      3 &      3  &     6 &      2 \\
+   1100  &     2 &      0 &      3 &      3  &     7 &      2 \\
+   1200  &     2 &      0 &      3 &      3  &     7 &      2 \\
+   1300  &     2 &      0 &      3 &      3  &     7 &      2 \\
+   1400  &     2 &      0 &      3 &      3  &     8 &      2 \\
+   1500  &     2 &      0 &      3 &      3  &     8 &      2 \\
+   1600  &     3 &      1 &      3 &      3  &     9 &      2 \\
+   3200  &     5 &      1 &      4 &      4  &    14 &      3 \\
+   6400  &     9 &      1 &      4 &      6  &    23 &      3 \\
+  12800  &    18 &      0 &      6 &      9  &    35 &      3 \\
+  25600  &    37 &      0 &      9 &     15  &    64 &      4 \\
+  51200  &    79 &      0 &     15 &     27  &   116 &      6 \\
+ 102400  &   165 &      0 &     29 &     52  &   223 &     10 \\
+ 204800  &   317 &      0 &     60 &    103  &  7606 &     18 \\
 
+
+    \end{tabular}
+    }
+    \caption{The result of the benchmark between linked lists and arrays (full table)}
+    \label{tab:table2}
+    \end{center}
+\end{table}
 
 \end{document}

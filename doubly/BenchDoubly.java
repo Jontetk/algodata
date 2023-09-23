@@ -99,7 +99,7 @@ public class BenchDoubly {
     }
 
     public static void main(String[] args) {
-        int[] sizes = {1100,1200,1300,1400,1500,1600,3200,6400,12800,25600,51200,102400,204800};
+        int[] sizes = {1000,1100,1200,1300,1400,1500,1600,3200,6400,12800,25600,51200,102400,204800};
         Random randForSeed = new Random();
         int seed = randForSeed.nextInt();
 
