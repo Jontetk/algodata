@@ -36,7 +36,7 @@ public class BinaryTree implements Iterable<Integer>{
                 }
             }
             if (curr == null) {
-                curr = new Node(key, value);
+                 curr = new Node(key, value);
                 if (curr.key < prev.key)
                     prev.left = curr;
                 else
@@ -72,6 +72,6 @@ public class BinaryTree implements Iterable<Integer>{
 
     }
     public Iterator <Integer> iterator() {
-        return new TreeIterator();
+        return new TreeIterator(this.root);
     }
 }

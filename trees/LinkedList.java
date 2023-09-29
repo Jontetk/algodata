@@ -21,11 +21,11 @@ public class LinkedList<Obj> {
             value = next.head;
             prev.tail = next.tail;
         }
-        else if (prev == null) {
+        else if (prev == null && next !=null) {
             value = next.head;
             first = next.tail;
         }
-        else if (next.tail == null) {
+        else if (next !=null&&next.tail == null ) {
             value = next.head;
             prev.tail = null;
         }
@@ -33,6 +33,15 @@ public class LinkedList<Obj> {
 
 
     }
+    public int length() {
+        Cell<Obj> next = this.first;
+        int len = 0;
+        while (next != null){
+            next = next.tail;
+            len++;
+        }
+        return len;
+        }
 
         
     }

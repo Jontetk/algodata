@@ -1,15 +1,17 @@
 public class Stack<Obj> {
-    LinkedList<Obj> stack;
+    LinkedList<Obj> stackList;
+    int stackCounter;
     Stack() {
-        this.stack = new LinkedList<Obj>();
+        this.stackList = new LinkedList<Obj>();
     }
     public void push(Obj value) {
-        this.stack.add(value);
+        this.stackList.add(value);
     }
     public Obj pop() {
-    
-        return this.stack.removeIndex(0);
+
+        return this.stackList.removeIndex(0);
     }
+
 
 
 }
