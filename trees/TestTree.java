@@ -42,6 +42,9 @@ public class TestTree {
 
         for (int k : testtre){
             System.out.println("next value " + k);
+            if(k==105){
+                testtre.add(500,105555);
+            }
         }
 
     }

@@ -45,8 +45,6 @@ public class TreeIterator implements Iterator<Integer> {
                 stack.push(next);
             }
             }
-            
-
             if(next == root && (root.key < returnNode.key||root.right==null))
                 next = null;
 
