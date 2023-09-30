@@ -1,0 +1,22 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kd}{public}\PYG{+w}{ }\PYG{n}{Integer}\PYG{+w}{ }\PYG{n+nf}{lookup}\PYG{p}{(}\PYG{n}{Integer}\PYG{+w}{ }\PYG{n}{key}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{root}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{k+kc}{null}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{k}{return}\PYG{+w}{ }\PYG{k+kc}{null}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{k}{else}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{n}{Node}\PYG{+w}{ }\PYG{n}{curr}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{root}\PYG{p}{;}
+\PYG{+w}{        }\PYG{k}{while}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{curr}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{k+kc}{null}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{            }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{curr}\PYG{p}{.}\PYG{n+na}{key}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{key}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{                }\PYG{n}{curr}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{curr}\PYG{p}{.}\PYG{n+na}{right}\PYG{p}{;}
+\PYG{+w}{            }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{            }\PYG{k}{else}\PYG{+w}{ }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{curr}\PYG{p}{.}\PYG{n+na}{key}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{key}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{                }\PYG{n}{curr}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{curr}\PYG{p}{.}\PYG{n+na}{left}\PYG{p}{;}
+\PYG{+w}{            }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{            }\PYG{k}{else}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{                }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{curr}\PYG{p}{.}\PYG{n+na}{value}\PYG{p}{;}
+\PYG{+w}{            }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{        }\PYG{k}{return}\PYG{+w}{ }\PYG{k+kc}{null}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

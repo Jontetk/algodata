@@ -18,7 +18,7 @@ public class TreeIterator implements Iterator<Integer> {
         }
     }
     @Override
-        public boolean hasNext() {
+    public boolean hasNext() {
             return next!= null;
     }
     @Override
@@ -34,17 +34,15 @@ public class TreeIterator implements Iterator<Integer> {
                     stack.push(next);
                 }
             }
-            else{
-                if(next.key!=root.key){
+            else if(next.key!=root.key){
                 next = stack.pop();
-                while(next!=root&&(next.right==null||next.right.key<=returnNode.key)){
-                    if(next.key>returnNode.key)
-                        break;
+                while(next!=root&&(next.right==null||next.right.key<=returnNode.key)
+                &&!(next.key>returnNode.key)){    
                     next = stack.pop();
                 }
                 stack.push(next);
             }
-            }
+            
             if(next == root && (root.key < returnNode.key||root.right==null))
                 next = null;
 

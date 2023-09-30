@@ -10,7 +10,8 @@ public class BenchTrees {
     
             System.gc();
             long t0 = System.nanoTime();
-            trädFan.lookup(randNod[i]);
+            for(int j : randNod)
+                trädFan.lookup(j);
             long t1 = System.nanoTime();
             double t = (t1 - t0);
             if (t < min)
@@ -33,8 +34,8 @@ public class BenchTrees {
 
 
     public static void main(String[] args) {
-        //TODO: ändra sizes
-        int[] sizes = {1000,1100,1200,1300,1400,1500,1600,3200,6400,12800,25600,51200,102400,204800};
+
+        int[] sizes = {100,200,400,800,1600,3200,6400,12800,25600,51200,102400,204800};
 
 
         

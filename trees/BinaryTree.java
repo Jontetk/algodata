@@ -12,23 +12,19 @@ public class BinaryTree implements Iterable<Integer>{
         if (root == null) {
             root = new Node(key, value);
         } 
-        
         else {
             Node curr = root;
             boolean found = false;
             Node prev = null;
-
             while (curr != null && found == false) {
                 if (curr.key < key) {
                     prev = curr;
                     curr = curr.right;
-                } 
-                
+                }
                 else if (curr.key > key) {
                     prev = curr;
                     curr = curr.left;
-                } 
-                
+                }                
                 else {
                     prev = curr;
                     curr.value = value;
@@ -42,7 +38,6 @@ public class BinaryTree implements Iterable<Integer>{
                 else
                     prev.right = curr;
             }
-
         }
     }
 
