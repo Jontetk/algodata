@@ -1,0 +1,49 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{minted}
+\usepackage{graphicx}
+\usepackage{placeins}
+
+\begin{document}
+
+
+\title{
+    \textbf{Queue report}
+}
+\author{Jonathan Karlsson}
+\date{Fall 2023}
+
+\maketitle
+
+\section*{Introduction}
+This assignment was to implement a queue and then recreate the iterator from the tree assignment using the queue and breadth first traversal, finally a queue consisting of an array was also created.
+\section*{Implementation}
+\subsection*{Linked queue}
+The linked queue was implemented using simple nodes that had an object as item and pointed to the next node in queue. When 
+creating the queue a couple of methods have to be created. these were the constructor, a method for adding to the queue and a method for removing from the queue. The first method, the constructor simply initialized both the head and the tail of the queue as null. 
+\begin{minted}{java}
+public Queue() {
+    this.head = null;
+    this.tail = null;
+}
+\end{minted} 
+The second method that was created was the add method. This would add an item that was specified to the end of the queue. This was done by first checking if the tail was null, which would mean there was no items in the queue, if there were no items, the tail was set to a new node cointaining the item, and with its next set to null as the tail 
+is the last item. then the head was set as the tail as there is only this one item. if the queue was not empty which would mean that tail would not be null, tail.next was set to the new node with the item and no next, and then tail was changed to tail.next making it point to the new last item in the queue.
+\begin{minted}{java}
+public void add(T item) {
+    if(tail == null) {
+        tail = new Node(item,null);
+        head = tail;
+    }
+    else {
+        tail.next = new Node(item,null);
+        tail = tail.next;
+    }
+}
+\end{minted}
+Finally the remove method was created as.
+\section*{Benchmark}
+
+\end{document}

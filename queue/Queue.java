@@ -27,9 +27,6 @@ public class Queue<T> {
             tail.next = new Node(item,null);
             tail = tail.next;
         }
-
-
-
     }
     public T remove() {
         T returnValue = null;
