@@ -1,15 +1,11 @@
 public class QuickList {
     public static void sort(LinkedList list){
-        quickSort(list);
-
-    }
-    private static void quickSort(LinkedList list){
             if(list.first != null){
 
             
             LinkedList[] sortLists = partition(list);    
-            quickSort(sortLists[1]);
-            quickSort(sortLists[2]);
+            sort(sortLists[1]);
+            sort(sortLists[2]);
             list.first = sortLists[1].first;
             list.last = sortLists[1].last;
             list.append(sortLists[0]);

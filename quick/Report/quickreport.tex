@@ -1,0 +1,42 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{minted}
+\usepackage{graphicx}
+\usepackage{placeins}
+
+\begin{document}
+
+
+\title{
+    \textbf{Quick report}
+}
+\author{Jonathan Karlsson}
+\date{Fall 2023}
+
+\maketitle
+
+\section*{Introduction}
+The assignment was to create a quick sort algorithm for both an array and a linked list, and then benchmark both.
+\section*{Implementation}
+\subsection*{Sort array}
+The quick sort for sorting an array was implemented using two methods, the sort method and a partition method. The quick sort for the array works by partitioning the array into smaller and larger elements than the pivot, and then 
+sorting theese partitions, this is done recursively until there is only one element left where that element is in both the min and the max partition. 
+The actual implementation to do this was to first write a public sort method which only called a private sort method using the array it got and the min and max indexes of the array also known as 0 and array.lengt-1. The actual sort method worked by first checking if the min and max indexes were the same, 
+if they were not it partitioned the array using the partition method and then sorted first from mid+1 to max and then from min to mid-1. Before the sort there is a check to see if mid is not max before the first method and that mid is not min before the second. This is done so that the mid +1 is not larger than max and so that mid -1 is not smaller than min. 
+\begin{minted}{java}
+private static void sort(int[] array, int min, int max) {
+    if(min != max) {
+    int mid = partition(array, min, max);
+    if(mid!=max)
+        sort(array,mid+1,max);
+    if (mid != min)
+        sort(array,min,mid-1);
+    }
+}
+\end{minted}
+The partition method works by 
+\section*{Conclusion}
+
+\end{document}
