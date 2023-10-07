@@ -1,6 +1,8 @@
 # Fdb version 4
-["pdflatex"] 1696682213 "f:/Jonathan/skol2/algodata/algodata/quick/Report/quickreport.tex" "quickreport.pdf" "quickreport" 1696682216 0
-  "f:/Jonathan/skol2/algodata/algodata/quick/Report/quickreport.tex" 1696682212 912 c582d10a9504a708eed109633b438b72 ""
+["pdflatex"] 1696682577 "f:/Jonathan/skol2/algodata/algodata/quick/Report/quickreport.tex" "quickreport.pdf" "quickreport" 1696682579 0
+  "_minted-quickreport/7DBBEF4CED40B203523067AF4C648D56CFD881D5C438D61CBA67E503FA611096.pygtex" 1696682576 1237 e0d278e5f5a9f4aa9058120291befc3b ""
+  "_minted-quickreport/default.pygstyle" 1696682576 6530 74aba51736a5bc6590f8f7dd413c6f27 ""
+  "f:/Jonathan/skol2/algodata/algodata/quick/Report/quickreport.tex" 1696682573 1858 73c648944c3dfeb5d553ae367decaff9 ""
   "g:/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1693232291 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "g:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1693230783 1324 c910af8c371558dc20f2d7822f66fe64 ""
   "g:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm" 1693230783 1524 4414a8315f39513458b80dfc63bff03a ""
@@ -14,9 +16,11 @@
   "g:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm" 1693230783 1124 6c73e740cf17375f03eec0ee63599741 ""
   "g:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm" 1693230783 1116 933a60c408fc0a863a92debe84b2d294 ""
   "g:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm" 1693230783 1120 8b7d695260f3cff42e636090a8002094 ""
+  "g:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm" 1693230783 768 1321e9409b4137d6fb428ac9dc956269 ""
   "g:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1693229988 32080 340ef9bf63678554ee606688e7b5339d ""
   "g:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1693229989 35752 024fb6c41858982481f6968b5fc26508 ""
   "g:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1693229989 32722 d7379af29a190c3f453aba36302ff5a9 ""
+  "g:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb" 1693229989 31099 342ef5a582aacbd3346f3cf4579679fa ""
   "g:/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1693234255 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "g:/texlive/2023/texmf-dist/tex/generic/catchfile/catchfile.sty" 1693230612 8622 63834878edeb14dd71d58d8f22bc3e06 ""
   "g:/texlive/2023/texmf-dist/tex/generic/etexcmds/etexcmds.sty" 1693231948 7734 b98cbb34c81f667027c1e3ebdbfce34b ""
@@ -61,8 +65,8 @@
   "g:/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1693239444 4703409 e46c3309a9f3771bafa9db35dbaa267a ""
   "g:/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1693237953 8172981 14ee4b92051f0fed0f639ad165cddec7 ""
   "g:/texlive/2023/texmf.cnf" 1693237619 713 e69b156964470283e0530f5060668171 ""
-  "quickreport.aux" 1696682216 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
-  "quickreport.tex" 1696682212 912 c582d10a9504a708eed109633b438b72 ""
+  "quickreport.aux" 1696682579 155 f68a8531776e5c08a5e1129cb24b7511 "pdflatex"
+  "quickreport.tex" 1696682573 1858 73c648944c3dfeb5d553ae367decaff9 ""
   (generated)
   "quickreport.aux"
   "quickreport.log"

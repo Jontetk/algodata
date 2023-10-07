@@ -245,12 +245,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 18.
 \openout3 = `quickreport.pyg'.
 
-runsystem(pygmentize -S default -f latex -P commandprefix=PYG > _minted-quickreport\default.pygstyle)...executed.
-
- (./_minted-quickreport/default.pygstyle)
-runsystem(pygmentize -l "java" -f latex -P commandprefix=PYG -F tokenmerge -P stripnl="False" -o _minted-quickreport/7DBBEF4CED40B203523067AF4C648D56CFD881D5C438D61CBA67E503FA611096.pygtex quickreport.pyg)...executed.
-
- (./_minted-quickreport/7DBBEF4CED40B203523067AF4C648D56CFD881D5C438D61CBA67E503FA611096.pygtex
+ (./_minted-quickreport/default.pygstyle) (./_minted-quickreport/7DBBEF4CED40B203523067AF4C648D56CFD881D5C438D61CBA67E503FA611096.pygtex
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10.95> not available
 (Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 2.
 ) [1
