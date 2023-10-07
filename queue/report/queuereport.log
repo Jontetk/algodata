@@ -262,8 +262,6 @@ LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10.95> not available
  (./_minted-queuereport/17EE22F2B8E644152D1A753D603A09101F486E5F8E0CE5B04135701399FD9E09.pygtex [2])
 \openout3 = `queuereport.pyg'.
 
-runsystem(pygmentize -l "java" -f latex -P commandprefix=PYG -F tokenmerge -P stripnl="False" -o _minted-queuereport/7201E676452BEF5A3DA17BF613069F9D1F486E5F8E0CE5B04135701399FD9E09.pygtex queuereport.pyg)...executed.
-
  (./_minted-queuereport/7201E676452BEF5A3DA17BF613069F9D1F486E5F8E0CE5B04135701399FD9E09.pygtex) [3] (./queuereport.aux)
  ***********
 LaTeX2e <2023-06-01> patch level 1
