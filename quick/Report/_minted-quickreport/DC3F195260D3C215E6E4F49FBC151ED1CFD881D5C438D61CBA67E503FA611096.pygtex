@@ -1,0 +1,27 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kd}{private}\PYG{+w}{ }\PYG{k+kd}{static}\PYG{+w}{ }\PYG{n}{LinkedList}\PYG{o}{[]}\PYG{+w}{ }\PYG{n+nf}{partition}\PYG{p}{(}\PYG{n}{LinkedList}\PYG{+w}{ }\PYG{n}{list}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{    }\PYG{n}{LinkedList}\PYG{+w}{ }\PYG{n}{pivot}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{LinkedList}\PYG{p}{();}
+\PYG{+w}{    }\PYG{n}{pivot}\PYG{p}{.}\PYG{n+na}{first}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{list}\PYG{p}{.}\PYG{n+na}{first}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{LinkedList}\PYG{+w}{ }\PYG{n}{smaller}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{LinkedList}\PYG{p}{();}
+\PYG{+w}{    }\PYG{n}{LinkedList}\PYG{+w}{ }\PYG{n}{larger}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{LinkedList}\PYG{p}{();}
+\PYG{+w}{    }\PYG{n}{Node}\PYG{+w}{ }\PYG{n}{next}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{list}\PYG{p}{.}\PYG{n+na}{first}\PYG{p}{.}\PYG{n+na}{next}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{list}\PYG{p}{.}\PYG{n+na}{first}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{list}\PYG{p}{.}\PYG{n+na}{first}\PYG{p}{.}\PYG{n+na}{next}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{pivot}\PYG{p}{.}\PYG{n+na}{first}\PYG{p}{.}\PYG{n+na}{next}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k+kc}{null}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{pivot}\PYG{p}{.}\PYG{n+na}{last}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{pivot}\PYG{p}{.}\PYG{n+na}{first}\PYG{p}{;}
+
+\PYG{+w}{    }\PYG{k}{while}\PYG{p}{(}\PYG{n}{next}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{k+kc}{null}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{n}{Node}\PYG{+w}{ }\PYG{n}{nextnext}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{next}\PYG{p}{.}\PYG{n+na}{next}\PYG{p}{;}
+\PYG{+w}{        }\PYG{n}{list}\PYG{p}{.}\PYG{n+na}{unlink}\PYG{p}{(}\PYG{n}{next}\PYG{p}{);}
+\PYG{+w}{        }\PYG{k}{if}\PYG{p}{(}\PYG{n}{next}\PYG{p}{.}\PYG{n+na}{head}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{pivot}\PYG{p}{.}\PYG{n+na}{first}\PYG{p}{.}\PYG{n+na}{head}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{            }\PYG{n}{smaller}\PYG{p}{.}\PYG{n+na}{insert}\PYG{p}{(}\PYG{n}{next}\PYG{p}{);}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{        }\PYG{k}{else}\PYG{+w}{ }\PYG{k}{if}\PYG{p}{(}\PYG{n}{next}\PYG{p}{.}\PYG{n+na}{head}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{pivot}\PYG{p}{.}\PYG{n+na}{first}\PYG{p}{.}\PYG{n+na}{head}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{            }\PYG{n}{larger}\PYG{p}{.}\PYG{n+na}{insert}\PYG{p}{(}\PYG{n}{next}\PYG{p}{);}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{        }\PYG{n}{next}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{nextnext}\PYG{p}{;}
+
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{n}{LinkedList}\PYG{+w}{ }\PYG{n}{returnArray}\PYG{o}{[]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{n}{pivot}\PYG{p}{,}\PYG{n}{smaller}\PYG{p}{,}\PYG{n}{larger}\PYG{p}{\PYGZcb{};}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{returnArray}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

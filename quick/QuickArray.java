@@ -18,15 +18,15 @@ public class QuickArray {
         int i = min;
         int j = max;
         while (i <j) {
-        while(array[j]>pivot && j >i) {
-            j--;
-        }
+            while(array[j]>pivot && j >i) {
+                j--;
+            }
 
-        while(array[i]<= pivot && i <j){
-            i++;
-        }
-        if(i<j)
-            swap(array, i, j);
+            while(array[i]<= pivot && i <j){
+                i++;
+            }
+            if(i<j)
+                swap(array, i, j);
         
         }
         swap(array, min, j);

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.8.28)  7 OCT 2023 15:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.8.28)  7 OCT 2023 17:51
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -248,9 +248,43 @@ LaTeX Font Info:    External font `cmex10' loaded for size
  (./_minted-quickreport/default.pygstyle) (./_minted-quickreport/7DBBEF4CED40B203523067AF4C648D56CFD881D5C438D61CBA67E503FA611096.pygtex
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10.95> not available
 (Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 2.
-) [1
+)
+\openout3 = `quickreport.pyg'.
 
-{g:/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] (./quickreport.aux)
+ (./_minted-quickreport/9CA3786775145B83CFD2483915143F2CCFD881D5C438D61CBA67E503FA611096.pygtex [1
+
+{g:/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}])
+\openout3 = `quickreport.pyg'.
+
+ (./_minted-quickreport/044805BDED00F26BEB5ED6F49041585ACFD881D5C438D61CBA67E503FA611096.pygtex [2])
+\openout3 = `quickreport.pyg'.
+
+ (./_minted-quickreport/DC3F195260D3C215E6E4F49FBC151ED1CFD881D5C438D61CBA67E503FA611096.pygtex [3])
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <10.95> on input line 139.
+ (./disp.tex
+\gptboxheight=\skip55
+\gptboxwidth=\skip56
+\gptboxtext=\box62
+Package epstopdf Info: Source file: <disp.eps>
+(epstopdf)                    date: 2023-10-07 17:42:11
+(epstopdf)                    size: 22843 bytes
+(epstopdf)             Output file: <disp-eps-converted-to.pdf>
+(epstopdf)                    date: 2023-10-07 17:43:34
+(epstopdf)                    size: 5182 bytes
+(epstopdf)             Command: <epstopdf --outfile=disp-eps-converted-to.pdf disp.eps>
+(epstopdf)             \includegraphics on input line 112.
+Package epstopdf Info: Output file is already uptodate.
+<disp-eps-converted-to.pdf, id=16, 361.35pt x 252.945pt>
+File: disp-eps-converted-to.pdf Graphic file (type pdf)
+<use disp-eps-converted-to.pdf>
+Package pdftex.def Info: disp-eps-converted-to.pdf  used on input line 112.
+(pdftex.def)             Requested size: 361.35463pt x 252.94823pt.
+)
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[4{g:/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] [5 <./disp-eps-converted-to.pdf>] (./quickreport.aux)
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-08-11>
@@ -259,18 +293,18 @@ runsystem(del quickreport.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 5845 strings out of 475188
- 109840 string characters out of 5767814
- 1923248 words of memory out of 5000000
- 27059 multiletter control sequences out of 15000+600000
- 562791 words of font info for 52 fonts, out of 8000000 for 9000
+ 5955 strings out of 475188
+ 112997 string characters out of 5767814
+ 1928248 words of memory out of 5000000
+ 27153 multiletter control sequences out of 15000+600000
+ 564401 words of font info for 57 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 77i,6n,79p,428b,509s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<g:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><g:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><g:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><g:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on quickreport.pdf (2 pages, 55113 bytes).
+ 77i,11n,79p,465b,509s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<g:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><g:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><g:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><g:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><g:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><g:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><g:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><g:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb><g:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb><g:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
+Output written on quickreport.pdf (5 pages, 132254 bytes).
 PDF statistics:
- 31 PDF objects out of 1000 (max. 8388607)
- 18 compressed objects within 1 object stream
+ 74 PDF objects out of 1000 (max. 8388607)
+ 45 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

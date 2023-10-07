@@ -38,11 +38,5 @@ public class QuickList {
         }
         LinkedList returnArray[] = {pivot,smaller,larger};
         return returnArray;
-
-
-
-
-
-        
     }
 }
