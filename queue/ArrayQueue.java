@@ -62,11 +62,11 @@ public class ArrayQueue {
     
     public void add(Integer item) {
         if(k != i|| totalAmount == 0) {
-        array[k] = item;
-        k++;
-        totalAmount++;
-        if(k == n)
-            k = 0;
+            array[k] = item;
+            k++;
+            totalAmount++;
+            if(k == n)
+                k = 0;
         }
         else {
             increaseSize();

@@ -43,7 +43,60 @@ public void add(T item) {
     }
 }
 \end{minted}
-Finally the remove method was created as.
-\section*{Benchmark}
+Finally the remove method was created, it was made by first setting the returnValue variable to null, this was done to ensure that the method returned null if the queue was empty which it is if the head is null. 
+If the queue is not empty, the returnValue is set as the value of the head, which will later be returned. If there exists something, after the head, the head is set to head.next to remove the reference to the previous head. Else, the head was the last element in the queue 
+so both the head and tail is set to null, which means the queue is empty. Finally the returnValue is returned.
+\begin{minted}{java}
+    public T remove() {
+        T returnValue = null;
+        if (head!=null){
+            returnValue = head.item;
+            if(head.next != null) 
+                head = head.next;
+            else{
+                head = null;
+                tail = null;
+            }
+        }
+        return returnValue;
+    }
+\end{minted} 
+\subsection*{Breadth first iterator}
+The iterator for the tree was changed so that it would use a queue instead of a stack. This makes it use breadth first traveral. The three important methods for the iterator, the constructor, the hasNext and the next were changed. 
+The constructor now only created the queue with Node as the object and set the next pointer as the root. The hasNext only returns the result of the statement next!= null, which is true if a next exists and false if it does not.
+The next method works by first saving the nexts value as a returnValue, then the left and right of the next is added to the queue if they exist and finally a new next is gotten by removing an element from the queue. Then the method returns the returnValue.
+\begin{minted}{java}
+public Integer next() {
+    Integer returnValue = next.value;
+    if(next.left!=null)
+        queue.add(next.left);
+    if(next.right!=null)
+        queue.add(next.right);
+    next = queue.remove();
+    return returnValue;
+}
+\end{minted}
+\subsection*{Array queue}
+The array queue was created first as a static queue and then it was upgraded to a dynamic queue. The queue used two indexes and an integer keeping track if the total amount of elements in the queue to know how full the queue is. The add method works by first checking that the queue is not full, this is true if either k is not equal to i or the total amount of elements is zero. 
+If k was equal to i and the total amount was not zero it would mean all slots in the queue is full and its size would need to be increased. If the queue is not full however the item is added to position k and k is increased to point to the next empty slot, totalAmount is also increased to show that 
+the items in the queue has increased, finally if k is pointing outside the array which is true if k == n then k is set to 0 to wrap around, as the i will increase when removing elements, which frees up space between 0 and i. Finally if the queue was full the increaseSize method would be called, which doubles the size of the queue, and add is called with the same item again, these 
+two method calls can be replaced with an error or something else if the queue is supposed to be static. 
+\begin{minted}{java}
+public void add(Integer item) {
+    if(k != i|| totalAmount == 0) {
+        array[k] = item;
+        k++;
+        totalAmount++;
+        if(k == n)
+            k = 0;
+    }
+    else {
+        increaseSize();
+        add(item);
+    }
+}
+\end{minted}
+
+\section*{Conclusion}
 
 \end{document}

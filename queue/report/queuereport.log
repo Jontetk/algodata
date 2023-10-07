@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.8.28)  7 OCT 2023 01:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.8.28)  7 OCT 2023 13:36
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -253,7 +253,18 @@ LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10.95> not available
 
  (./_minted-queuereport/A1FA34D63B60CFEA241427CEFE12DEEE1F486E5F8E0CE5B04135701399FD9E09.pygtex [1
 
-{g:/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]) [2] (./queuereport.aux)
+{g:/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}])
+\openout3 = `queuereport.pyg'.
+
+ (./_minted-queuereport/8A5DE948EBF9F7C07EC5A1EBB88D0BC11F486E5F8E0CE5B04135701399FD9E09.pygtex)
+\openout3 = `queuereport.pyg'.
+
+ (./_minted-queuereport/17EE22F2B8E644152D1A753D603A09101F486E5F8E0CE5B04135701399FD9E09.pygtex [2])
+\openout3 = `queuereport.pyg'.
+
+runsystem(pygmentize -l "java" -f latex -P commandprefix=PYG -F tokenmerge -P stripnl="False" -o _minted-queuereport/7201E676452BEF5A3DA17BF613069F9D1F486E5F8E0CE5B04135701399FD9E09.pygtex queuereport.pyg)...executed.
+
+ (./_minted-queuereport/7201E676452BEF5A3DA17BF613069F9D1F486E5F8E0CE5B04135701399FD9E09.pygtex) [3] (./queuereport.aux)
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-08-11>
@@ -262,18 +273,18 @@ runsystem(del queuereport.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 5851 strings out of 475188
- 110462 string characters out of 5767814
- 1923248 words of memory out of 5000000
- 27062 multiletter control sequences out of 15000+600000
+ 5873 strings out of 475188
+ 112364 string characters out of 5767814
+ 1925248 words of memory out of 5000000
+ 27075 multiletter control sequences out of 15000+600000
  562791 words of font info for 52 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 77i,6n,79p,430b,509s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 77i,6n,79p,465b,509s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <g:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><g:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><g:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><g:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on queuereport.pdf (2 pages, 55778 bytes).
+Output written on queuereport.pdf (3 pages, 64271 bytes).
 PDF statistics:
- 31 PDF objects out of 1000 (max. 8388607)
- 18 compressed objects within 1 object stream
+ 34 PDF objects out of 1000 (max. 8388607)
+ 20 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kd}{public}\PYG{+w}{ }\PYG{n}{Integer}\PYG{+w}{ }\PYG{n+nf}{next}\PYG{p}{()}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n}{Integer}\PYG{+w}{ }\PYG{n}{returnValue}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{next}\PYG{p}{.}\PYG{n+na}{value}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{n}{next}\PYG{p}{.}\PYG{n+na}{left}\PYG{o}{!=}\PYG{k+kc}{null}\PYG{p}{)}
+\PYG{+w}{        }\PYG{n}{queue}\PYG{p}{.}\PYG{n+na}{add}\PYG{p}{(}\PYG{n}{next}\PYG{p}{.}\PYG{n+na}{left}\PYG{p}{);}
+\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{n}{next}\PYG{p}{.}\PYG{n+na}{right}\PYG{o}{!=}\PYG{k+kc}{null}\PYG{p}{)}
+\PYG{+w}{        }\PYG{n}{queue}\PYG{p}{.}\PYG{n+na}{add}\PYG{p}{(}\PYG{n}{next}\PYG{p}{.}\PYG{n+na}{right}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{next}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{queue}\PYG{p}{.}\PYG{n+na}{remove}\PYG{p}{();}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{returnValue}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}
