@@ -85,7 +85,7 @@ public class ArrayQueue {
             i =0;
         if(totalAmount> 0 && n/totalAmount == 4)
             decreaseSize();
-        return(returnItem);
+        return returnItem;
 
         
     }

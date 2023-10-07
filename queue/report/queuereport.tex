@@ -96,7 +96,74 @@ public void add(Integer item) {
     }
 }
 \end{minted}
+The remove method works by first checking if the queue is empty which is done by checking if the totalAmount is null, if it is empty the remove just returns null. Otherwise the remove saves the current element of index i as returneItem, this is as index i indicates the item that should be returned. Then i is increased to point to 
+the next element, then totalAmount is decreased. If i is n then it is set to 0 as it would be outside of the queue. Finally if n divided by totalAmount is four which would mean only a quarter of the queue is used, decreaseSize is called, which halves the size of the queue. Finally returnItem is returned.
+\begin{minted}{java}
+public Integer remove() {
+    if (totalAmount == 0)
+        return null;
+    Integer returnItem = array[i];
+    array[i] = null;
+    i++;
+    totalAmount--;
+    if(i==n) 
+        i =0;
+    if(totalAmount> 0 && n/totalAmount == 4)
+        decreaseSize();
+    return returnItem;
+}
+\end{minted}
+\subsection*{Increase and decrease size}
+The increaseSize was implemented by first creating a new array with double the size of the previous array. Then the from i to n was copied from the original array to the beginning of the new array. Then i was set to zero, finally the elements from 0 to k was copied and put behind the previous elements in the new array. This made the items start from 0 again in the new array. Finally k was set to n as the previous array was full so the previous n is the new k and 
+n was doubled and the array was replaced with the new array.
+\begin{minted}{java}
+private void increaseSize() {
+    Integer[] arraynew = new Integer[2*n];
+    int index = 0;
+    for (int j = i;j < n;j++){
+        arraynew[index] = array[j];
+        index++;
+    }
+    i=0;
+    for(int j = 0; j<k;j++){
+        arraynew[index] = array[j];
+    }
+    k = n; 
+    n *= 2;
+    array = arraynew;
+}
+\end{minted}
+The decreaseSize method worked by once again first creating a new array, this time with half the size of the previous array. Then there were two different scenarios, either, 
+the elements are all on a line or the elements are wrapping around the array. if k is larger than i then the elements are on a line, then the only thing that has to be done is copy the elements from j to k to the new array, if the elements are not 
+on a line then the elements from i to n are first copied and then from 0 to k. Finally i is set to 0, k is set to the end of the items and the array is set to the new array and n is divided by 2.
+\begin{minted}{java}
+private void decreaseSize() {
+    Integer[] arraynew = new Integer[n/2];
+    int index = 0;
+    if(i<k){
+        for(int j = i; j<k;j++) {
+            arraynew[index] = array[j];
+            index++;
+        }
+    }
+    else {
+        for(int j = i; j < n;j++){
+            arraynew[index] = array[j];
+            index++;
+        }  
+        for(int j = 0; j < k; j++) {
+            arraynew[index] = array[j];
+            index++;
+        }
+    }
+    i = 0;
+    k = index;
+    array = arraynew;
+    n /= 2;
+}
+\end{minted}
 
 \section*{Conclusion}
-
+A queue is definitely useful for different tasks, while it is definitely possible to implement it using an array, it seems impractical, unless it is important to access elements in the middle of the queue, this is because an array is trickier to implement and also 
+because it is necessary to waste time resizing the array if the queue grows too big. Another way to implement a queue where elements in the middle could easily be modified would be using a double linked list as the queue, then an element could easily be inserted or removed from the queue.
 \end{document}
