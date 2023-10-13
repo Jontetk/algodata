@@ -1,8 +1,6 @@
-import java.util.Random;
 public class TestHeapTree {
     public static void main(String[] args) {
         HeapTree trefan = new HeapTree();
-        Random rand = new Random();
         trefan.add(10);
         trefan.add(15);
         trefan.add(5);
@@ -23,7 +21,7 @@ public class TestHeapTree {
         System.out.println(trefan.remove());
         System.out.println(trefan.remove());
         System.out.println(trefan.remove());
-        trefan.add(5);
+        trefan.add(9);
         trefan.add(2);
         trefan.add(1);
         System.out.println(trefan.remove());
@@ -33,7 +31,15 @@ public class TestHeapTree {
         trefan.add(-7);
         trefan.add(58);
         System.out.println(trefan.remove());
+        trefan.push(6);
         System.out.println(trefan.remove());
+                System.out.println(trefan.remove());
+                        System.out.println(trefan.remove());
+                                System.out.println(trefan.remove());
+                                        System.out.println(trefan.remove());
+                                                System.out.println(trefan.remove());
+                                                        System.out.println(trefan.remove());
+
 
     }
 }

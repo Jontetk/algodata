@@ -48,7 +48,6 @@ public class HeapTree {
             if(current.left == null && current.right != null) {
                 current.value = current.right.value;
                 if(current.right.size == 1) {
-                
                     current.right = null;
                     break;
                 }
@@ -94,8 +93,9 @@ public class HeapTree {
         root.value += incr;
         TreeNode current = root;
         int depth = 0;
-        while((current.right!=null||current.left!=null)&&(current.left.value < current.value||current.right.value < current.value)) {
-            if(current.right.value<current.value) {
+        while(((current.right!=null&&current.right.value < current.value)||(current.left!=null&& current.left.value < current.value))) {
+            
+            if(current.right!=null &&current.right.value<current.value) {
                 Integer temp = current.right.value;
                 current.right.value = current.value;
                 current.value = temp;
@@ -104,7 +104,7 @@ public class HeapTree {
 
 
             }
-            else if(current.left.value<current.value) {
+            else if(current.left!=null && current.left.value<current.value) {
                 Integer temp = current.left.value;
                 current.left.value = current.value;
                 current.value = temp;
