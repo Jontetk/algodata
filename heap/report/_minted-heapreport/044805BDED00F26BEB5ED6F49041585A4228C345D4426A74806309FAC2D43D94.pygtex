@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kd}{public}\PYG{+w}{ }\PYG{k+kd}{static}\PYG{+w}{ }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{sort}\PYG{p}{(}\PYG{n}{LinkedList}\PYG{+w}{ }\PYG{n}{list}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{n}{list}\PYG{p}{.}\PYG{n+na}{first}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{k+kc}{null}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{        }\PYG{n}{LinkedList}\PYG{o}{[]}\PYG{+w}{ }\PYG{n}{sortLists}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{partition}\PYG{p}{(}\PYG{n}{list}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{sort}\PYG{p}{(}\PYG{n}{sortLists}\PYG{o}{[}\PYG{l+m+mi}{1}\PYG{o}{]}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{sort}\PYG{p}{(}\PYG{n}{sortLists}\PYG{o}{[}\PYG{l+m+mi}{2}\PYG{o}{]}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{list}\PYG{p}{.}\PYG{n+na}{first}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{sortLists}\PYG{o}{[}\PYG{l+m+mi}{1}\PYG{o}{]}\PYG{p}{.}\PYG{n+na}{first}\PYG{p}{;}
+\PYG{+w}{        }\PYG{n}{list}\PYG{p}{.}\PYG{n+na}{last}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{sortLists}\PYG{o}{[}\PYG{l+m+mi}{1}\PYG{o}{]}\PYG{p}{.}\PYG{n+na}{last}\PYG{p}{;}
+\PYG{+w}{        }\PYG{n}{list}\PYG{p}{.}\PYG{n+na}{append}\PYG{p}{(}\PYG{n}{sortLists}\PYG{o}{[}\PYG{l+m+mi}{0}\PYG{o}{]}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{list}\PYG{p}{.}\PYG{n+na}{append}\PYG{p}{(}\PYG{n}{sortLists}\PYG{o}{[}\PYG{l+m+mi}{2}\PYG{o}{]}\PYG{p}{);}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

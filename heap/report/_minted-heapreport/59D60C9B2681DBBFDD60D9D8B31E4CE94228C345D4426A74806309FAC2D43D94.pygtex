@@ -1,0 +1,24 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kd}{public}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n+nf}{push}\PYG{p}{(}\PYG{n}{Integer}\PYG{+w}{ }\PYG{n}{incr}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n}{root}\PYG{p}{.}\PYG{n+na}{value}\PYG{+w}{ }\PYG{o}{+=}\PYG{+w}{ }\PYG{n}{incr}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{TreeNode}\PYG{+w}{ }\PYG{n}{current}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{root}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{depth}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{while}\PYG{p}{(((}\PYG{n}{current}\PYG{p}{.}\PYG{n+na}{right}\PYG{o}{!=}\PYG{k+kc}{null}\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{n}{current}\PYG{p}{.}\PYG{n+na}{right}\PYG{p}{.}\PYG{n+na}{value}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{current}\PYG{p}{.}\PYG{n+na}{value}\PYG{p}{)}\PYG{o}{||}
+\PYG{+w}{    }\PYG{p}{(}\PYG{n}{current}\PYG{p}{.}\PYG{n+na}{left}\PYG{o}{!=}\PYG{k+kc}{null}\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{+w}{ }\PYG{n}{current}\PYG{p}{.}\PYG{n+na}{left}\PYG{p}{.}\PYG{n+na}{value}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{current}\PYG{p}{.}\PYG{n+na}{value}\PYG{p}{)))}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{k}{if}\PYG{p}{(}\PYG{n}{current}\PYG{p}{.}\PYG{n+na}{right}\PYG{o}{!=}\PYG{k+kc}{null}\PYG{+w}{ }\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{n}{current}\PYG{p}{.}\PYG{n+na}{right}\PYG{p}{.}\PYG{n+na}{value}\PYG{o}{\PYGZlt{}}\PYG{n}{current}\PYG{p}{.}\PYG{n+na}{value}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{            }\PYG{n}{Integer}\PYG{+w}{ }\PYG{n}{temp}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{current}\PYG{p}{.}\PYG{n+na}{right}\PYG{p}{.}\PYG{n+na}{value}\PYG{p}{;}
+\PYG{+w}{            }\PYG{n}{current}\PYG{p}{.}\PYG{n+na}{right}\PYG{p}{.}\PYG{n+na}{value}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{current}\PYG{p}{.}\PYG{n+na}{value}\PYG{p}{;}
+\PYG{+w}{            }\PYG{n}{current}\PYG{p}{.}\PYG{n+na}{value}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{temp}\PYG{p}{;}
+\PYG{+w}{            }\PYG{n}{current}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{current}\PYG{p}{.}\PYG{n+na}{right}\PYG{p}{;}
+\PYG{+w}{            }\PYG{n}{depth}\PYG{o}{++}\PYG{p}{;}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{        }\PYG{k}{else}\PYG{+w}{ }\PYG{k}{if}\PYG{p}{(}\PYG{n}{current}\PYG{p}{.}\PYG{n+na}{left}\PYG{o}{!=}\PYG{k+kc}{null}\PYG{+w}{ }\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{+w}{ }\PYG{n}{current}\PYG{p}{.}\PYG{n+na}{left}\PYG{p}{.}\PYG{n+na}{value}\PYG{o}{\PYGZlt{}}\PYG{n}{current}\PYG{p}{.}\PYG{n+na}{value}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{            }\PYG{n}{Integer}\PYG{+w}{ }\PYG{n}{temp}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{current}\PYG{p}{.}\PYG{n+na}{left}\PYG{p}{.}\PYG{n+na}{value}\PYG{p}{;}
+\PYG{+w}{            }\PYG{n}{current}\PYG{p}{.}\PYG{n+na}{left}\PYG{p}{.}\PYG{n+na}{value}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{current}\PYG{p}{.}\PYG{n+na}{value}\PYG{p}{;}
+\PYG{+w}{            }\PYG{n}{current}\PYG{p}{.}\PYG{n+na}{value}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{temp}\PYG{p}{;}
+\PYG{+w}{            }\PYG{n}{current}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{current}\PYG{p}{.}\PYG{n+na}{left}\PYG{p}{;}
+\PYG{+w}{            }\PYG{n}{depth}\PYG{o}{++}\PYG{p}{;}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

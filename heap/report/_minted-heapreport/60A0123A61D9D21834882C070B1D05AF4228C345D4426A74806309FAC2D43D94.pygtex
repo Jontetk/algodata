@@ -1,0 +1,24 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kd}{private}\PYG{+w}{ }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{add}\PYG{p}{(}\PYG{n}{Integer}\PYG{+w}{ }\PYG{n}{value}\PYG{p}{,}\PYG{n}{TreeNode}\PYG{+w}{ }\PYG{n}{node}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n}{node}\PYG{p}{.}\PYG{n+na}{size}\PYG{+w}{ }\PYG{o}{+=}\PYG{l+m+mi}{1}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{n}{value}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{node}\PYG{p}{.}\PYG{n+na}{value}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{n}{Integer}\PYG{+w}{ }\PYG{n}{temp}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{node}\PYG{p}{.}\PYG{n+na}{value}\PYG{p}{;}
+\PYG{+w}{        }\PYG{n}{node}\PYG{p}{.}\PYG{n+na}{value}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{value}\PYG{p}{;}
+\PYG{+w}{        }\PYG{n}{value}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{temp}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{node}\PYG{p}{.}\PYG{n+na}{left}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{k+kc}{null}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{n}{node}\PYG{p}{.}\PYG{n+na}{left}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{TreeNode}\PYG{p}{(}\PYG{n}{value}\PYG{p}{);}
+\PYG{+w}{        }\PYG{k}{return}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{node}\PYG{p}{.}\PYG{n+na}{right}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{k+kc}{null}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{n}{node}\PYG{p}{.}\PYG{n+na}{right}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{TreeNode}\PYG{p}{(}\PYG{n}{value}\PYG{p}{);}
+\PYG{+w}{        }\PYG{k}{return}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{k}{if}\PYG{p}{(}\PYG{n}{node}\PYG{p}{.}\PYG{n+na}{left}\PYG{p}{.}\PYG{n+na}{size}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{node}\PYG{p}{.}\PYG{n+na}{right}\PYG{p}{.}\PYG{n+na}{size}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{n}{add}\PYG{p}{(}\PYG{n}{value}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{node}\PYG{p}{.}\PYG{n+na}{left}\PYG{p}{);}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{k}{else}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{n}{add}\PYG{p}{(}\PYG{n}{value}\PYG{p}{,}\PYG{n}{node}\PYG{p}{.}\PYG{n+na}{right}\PYG{p}{);}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

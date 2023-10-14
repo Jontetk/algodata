@@ -57,7 +57,6 @@ public class HeapTree {
             else if (current.left != null && current.right == null) {
                 current.value = current.left.value;
                 if(current.left.size == 1) {
-                
                     current.left = null;
                     break;
                 }
@@ -67,7 +66,6 @@ public class HeapTree {
             else if (current.right.value < current.left.value ) {
                 current.value = current.right.value;
                 if(current.right.size == 1) {
-                
                     current.right = null;
                     break;
                 }
@@ -76,15 +74,13 @@ public class HeapTree {
             }
             else {
                 current.value = current.left.value;
-                if(current.left.size == 1) {
-                
+                if(current.left.size == 1) {   
                     current.left = null;
                     break;
                 }
                 else 
                     current = current.left;
             }
-
         }
         return returnValue;
 

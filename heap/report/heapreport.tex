@@ -1,0 +1,206 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{minted}
+\usepackage{graphicx}
+\usepackage{placeins}
+
+\begin{document}
+
+
+\title{
+    \textbf{Heap report}
+}
+\author{Jonathan Karlsson}
+\date{Fall 2023}
+
+\maketitle
+
+\section*{Introduction}
+This assignment consisted of first creating a prority queue as a linked list, then creating a heap as a tree, and finally turn the tree into an array 
+which makes it easier to navigate.
+
+
+\section*{Implementation}
+\subsection*{Prority queue list}
+The prority queue list was created as two, the first where the add method was simpler and the second where the remove method was simpler. On the first one the add method simply added
+the value to the start of the queue, but the remove method is more complicated, as it goes through every element of the list, and then checks for the smallest element. When the samllest element is found it is removed in a similar way to a double linked list. Then the value is returned.
+\begin{minted}{java}
+public Integer remove() {
+    if (this.first == null)
+        return null;
+    Node priority = this.first;
+    Node next = this.first;
+    while(next != null) {
+        if(priority.head > next.head) {
+            priority = next;
+        }
+    next = next.next;
+    }
+    if (priority.prev != null)
+        priority.prev.next = priority.next;
+    if (priority.prev == null)
+        this.first = this.first.next;
+    if(priority.next != null)
+        priority.next.prev = priority.prev;
+
+    return priority.head;
+}    
+\end{minted}
+The second implementation, instead had a simple remove, where it only removed the first element, however here the add is more complicated as it has to go through the list until something larger is found and then the value is inserted infront of that larger value. 
+This works by either finding the value in the middle where it gets inserted between two elements, or it is at the first element, where it gets inserted infront of the first, or finally it is not smaller than any value and then it is added to the end.
+\begin{minted}{java}
+public void add(Integer value) {
+    if (this.first == null) {
+        this.first = new Node(value, null, null);
+        return;
+    }
+    Node next = this.first;
+    Node prev = null;
+    while (next != null) {
+        if(next.head>value){
+            Node nodeToAdd = new Node(value,next,next.prev);
+            if (next.prev != null){
+                next.prev.next = nodeToAdd;
+                next.prev = nodeToAdd;
+            }
+            else {
+                this.first = nodeToAdd;
+            }
+            break;
+        }
+        if(next.next == null) {
+            prev = next;
+        }
+            next = next.next;
+    }
+    if (next == null) {
+        prev.next = new Node(value, null, prev);
+    }
+}
+\end{minted}
+\subsection*{Tree heap}
+The three heap was implemented with three methods add, remove and push. 
+The add method works by first checking if the root is null, if it is then it adds the value to the root. If it was not null 
+the add method calls another add method with the root, this add method recursivly swaps values downword until ther is a free space, it also works towards the nodes with the smallest size.
+\begin{minted}{java}
+private void add(Integer value,TreeNode node) {
+    node.size +=1;
+    if(value < node.value) {
+        Integer temp = node.value;
+        node.value = value;
+        value = temp;
+    }
+    if (node.left == null) {
+        node.left = new TreeNode(value);
+        return;
+    }
+    if (node.right == null) {
+        node.right = new TreeNode(value);
+        return;
+    }
+    if(node.left.size < node.right.size) {
+        add(value, node.left);
+    }
+    else {
+        add(value,node.right);
+    }
+}
+\end{minted}
+The remove method starts by checking if there is no root, then null is returned, or root is alone, then root is set to null and its value is returned. If root was not null its value is saved, then
+differnet if statements is run to check if the right or left value should be brought up, then current is set to the node which value was brought up and then the loop is run again until a node which does not have any nodes under it is reached and 
+then it is set to null and the roots value is returned. The if statements are shown below.
+\begin{minted}{java}
+if(current.left == null && current.right != null) {
+    current.value = current.right.value;
+    if(current.right.size == 1) {
+        current.right = null;
+        break;
+    }
+    else 
+        current = current.right;
+}
+else if (current.left != null && current.right == null) {
+    current.value = current.left.value;
+    if(current.left.size == 1) {
+        current.left = null;
+        break;
+    }
+    else 
+        current = current.left;
+}
+else if (current.right.value < current.left.value ) {
+    current.value = current.right.value;
+    if(current.right.size == 1) {
+        current.right = null;
+        break;
+    }
+    else 
+        current = current.right;
+}
+else {
+    current.value = current.left.value;
+    if(current.left.size == 1) {   
+        current.left = null;
+        break;
+    }
+    else 
+        current = current.left;
+}
+return returnValue;
+\end{minted}
+The push method only pushes adds a number to the root then works in a similar way to add and remove to swap the past root down until it is in a correct place. 
+\begin{minted}{java}
+public int push(Integer incr) {
+    root.value += incr;
+    TreeNode current = root;
+    int depth = 0;
+    while(((current.right!=null&&current.right.value < current.value)||
+    (current.left!=null&& current.left.value < current.value))) {
+        if(current.right!=null &&current.right.value<current.value) {
+            Integer temp = current.right.value;
+            current.right.value = current.value;
+            current.value = temp;
+            current = current.right;
+            depth++;
+        }
+        else if(current.left!=null && current.left.value<current.value) {
+            Integer temp = current.left.value;
+            current.left.value = current.value;
+            current.value = temp;
+            current = current.left;
+            depth++;
+        }
+    }
+}
+\end{minted}
+\subsection*{ArrayHeap}
+The add method for the arrayHeap is simple it just increases k and then adds the element to the k position and finally calls the swapInto method with k. 
+The swapInto method works by first checking if root has been reached, if it has return, then checking if the parent to the currentIndex is -2/2 or -1/2. Finally if the current element is 
+smaller than the parent it swaps and then calls the swapInto method with the parent. 
+\begin{minted}{java}
+private void swapInto(int currentIndex) {
+    if(currentIndex <= 0)
+        return;
+    int parent;
+    if(currentIndex%2 == 0) {
+        parent = (currentIndex-2)/2;
+    }
+    else {
+        parent = (currentIndex-1)/2;
+    }
+    if(array[currentIndex]<array[parent]) {
+        Integer temp = array[currentIndex];
+        array[currentIndex] = array[parent];
+        array[parent] = temp;
+        swapInto(parent);
+    }
+    
+}
+\end{minted}
+
+
+\section*{Benchmark}
+
+\end{document}

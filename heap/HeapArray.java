@@ -11,14 +11,14 @@ public class HeapArray {
         this.n = n;
     }
     public void add(Integer element) {
-        if(k < n) {
+        if(k+1 < n) {
             k++;
             array[k] = element;
             swapInto(k);
-                       
-
         }
-        
+        else {
+            throw new IndexOutOfBoundsException();
+        }
         
         
     }
