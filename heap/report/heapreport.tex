@@ -110,46 +110,7 @@ private void add(Integer value,TreeNode node) {
 \end{minted}
 The remove method starts by checking if there is no root, then null is returned, or root is alone, then root is set to null and its value is returned. If root was not null its value is saved, then
 differnet if statements is run to check if the right or left value should be brought up, then current is set to the node which value was brought up and then the loop is run again until a node which does not have any nodes under it is reached and 
-then it is set to null and the roots value is returned. The if statements are shown below.
-\begin{minted}{java}
-if(current.left == null && current.right != null) {
-    current.value = current.right.value;
-    if(current.right.size == 1) {
-        current.right = null;
-        break;
-    }
-    else 
-        current = current.right;
-}
-else if (current.left != null && current.right == null) {
-    current.value = current.left.value;
-    if(current.left.size == 1) {
-        current.left = null;
-        break;
-    }
-    else 
-        current = current.left;
-}
-else if (current.right.value < current.left.value ) {
-    current.value = current.right.value;
-    if(current.right.size == 1) {
-        current.right = null;
-        break;
-    }
-    else 
-        current = current.right;
-}
-else {
-    current.value = current.left.value;
-    if(current.left.size == 1) {   
-        current.left = null;
-        break;
-    }
-    else 
-        current = current.left;
-}
-return returnValue;
-\end{minted}
+then it is set to null and the roots value is returned.
 The push method only pushes adds a number to the root then works in a similar way to add and remove to swap the past root down until it is in a correct place. 
 \begin{minted}{java}
 public int push(Integer incr) {
@@ -199,8 +160,86 @@ private void swapInto(int currentIndex) {
     
 }
 \end{minted}
+The remove method works by first checking if the element in the root position is null if it is return null. Then the roots value is saved, the element in position k is put into root and the position k is set to null, then k is decreased and sink with root is called.
+The sink method works by first calcuclating where the left and right index is. Then it checks if it can go into the left index, which it can if the leftindex is in the array, the leftindex is smaller than the current index. Then if the rightindex is not in the array or the rightindex element is larger than the leftindex elemnt. then the element in the current index and left index are swapped and sink is called with left index.
+Then the same checks is done for the right index.
+\begin{minted}{java}
+private void sink(int currentIndex) {
+    int leftIndex = currentIndex*2+1;
+    int rightIndex = currentIndex*2+2;
 
+    if(leftIndex <= k &&array[currentIndex]>array[leftIndex]) {
+        if(rightIndex >k || array[leftIndex]<=array[rightIndex]){
+            Integer temp = array[currentIndex];
+            array[currentIndex] = array[leftIndex];
+            array[leftIndex] = temp;
+            sink(leftIndex);
+        }
+    }
+    else if(rightIndex <= k && array[currentIndex]>array[rightIndex] ) {
+        if(leftIndex > k || array[leftIndex]>array[rightIndex]) {
+        Integer temp = array[currentIndex];
+        array[currentIndex] = array[rightIndex];
+        array[rightIndex] = temp;
+        sink(rightIndex);  
+        }
+    }
+}
+\end{minted}
 
 \section*{Benchmark}
+The first benchmark was to compare the two linked lists. with each other and their add and remove functions. Here it seems that the first priority list with the complicated remove is slower, as the complicated add of the second list is 
+much faster than the remove, while the simple add and simple remove is about as fast meaning that simple add + complicated remove is slower.
+\newline
+\begin{table}[h]
+    \begin{center}
+    \scalebox{1}{
+    \begin{tabular}{l|c|c|c|c|}
+    \textbf{n} & \textbf{L1 add({\textmu}s)} & \textbf{L2 add({\textmu}s)}& \textbf{L1 remove({\textmu}s)}& \textbf{L2 remove({\textmu}s)}\\
+    \hline
+    100    &   9  &     8&      14 &      3 \\
+    200    &   7  &    19&      54 &      3 \\
+    400    &   5  &    11&     215 &      2 \\
+    800    &   9  &   141&     878 &      5 \\
+   1600    &  14  &  1297&    3706 &     10 \\
+    \end{tabular}
+    }
+    \caption{The result between the two linked lists combined}
+    \label{tab:table1}
+    \end{center}
+\end{table}
+\newline
+\FloatBarrier{\noindent}
+The second benchmark was to use the push operation a couple of times on the tree and compare it to remove and add with the same change of value. Then also save the amount of depth that the operation produced. 
+The amount of times the push operation took was about 2,9{\textmu}s and the amount of time spent on the add and remove was 5,2{\textmu}s for 20 operations.
+The avereage depth when pushing was around 3,35.
+\newline
+\newline
+The final benchmark was to benchmark the array implementation and compare it to the linked implementation. As the second list is faster than the first list that 
+is what is compared to the array. The result is clear that the array is much faster on a combined time, however the simple remove still beats the array, but as the array has a faster add it seems like the optimal choice.
+\begin{table}[h]
+    \begin{center}
+    \scalebox{1}{
+    \begin{tabular}{l|c|c|c|c|}
+    \textbf{n} & \textbf{A add({\textmu}s)} & \textbf{L2 add({\textmu}s)}& \textbf{A remove({\textmu}s)}& \textbf{L2 remove({\textmu}s)}\\
+    \hline
+    100    &   9  &     8&      4 &      3 \\
+    200    &   13  &    19&      7 &      3 \\
+    400    &   23  &    11&     11 &      2 \\
+    800    &   44  &   141&     23 &      5 \\
+   1600    &  81  &  1297&    44 &     10 \\
+    \end{tabular}
+    }
+    \caption{The result between the second list and the array}
+    \label{tab:table2}
+    \end{center}
+\end{table}
+
+
+
+
+
+
+
 
 \end{document}

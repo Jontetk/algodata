@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.8.28)  14 OCT 2023 14:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.8.28)  14 OCT 2023 15:18
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -259,13 +259,34 @@ LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10.95> not available
  (./_minted-heapreport/60A0123A61D9D21834882C070B1D05AF4228C345D4426A74806309FAC2D43D94.pygtex [2])
 \openout3 = `heapreport.pyg'.
 
- (./_minted-heapreport/F419DFBC02D56AF255901662FEC875034228C345D4426A74806309FAC2D43D94.pygtex [3])
+ (./_minted-heapreport/59D60C9B2681DBBFDD60D9D8B31E4CE94228C345D4426A74806309FAC2D43D94.pygtex [3])
 \openout3 = `heapreport.pyg'.
 
- (./_minted-heapreport/59D60C9B2681DBBFDD60D9D8B31E4CE94228C345D4426A74806309FAC2D43D94.pygtex [4])
+ (./_minted-heapreport/ACEA8F5DABA1995684D68137A4FEF3284228C345D4426A74806309FAC2D43D94.pygtex [4])
 \openout3 = `heapreport.pyg'.
 
- (./_minted-heapreport/ACEA8F5DABA1995684D68137A4FEF3284228C345D4426A74806309FAC2D43D94.pygtex) [5] (./heapreport.aux)
+ (./_minted-heapreport/DED66ABEF39AE645A3210811441848284228C345D4426A74806309FAC2D43D94.pygtex)
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <10.95> on input line 206.
+
+Overfull \hbox (7.46922pt too wide) in paragraph at lines 206--207
+ [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 191--212
+
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 212--237
+
+ []
+
+[6{c:/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] (./heapreport.aux)
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-08-11>
@@ -274,18 +295,18 @@ runsystem(del heapreport.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 5878 strings out of 475188
- 112836 string characters out of 5767814
- 1925248 words of memory out of 5000000
- 27079 multiletter control sequences out of 15000+600000
- 562791 words of font info for 52 fonts, out of 8000000 for 9000
+ 5894 strings out of 475188
+ 113083 string characters out of 5767814
+ 1929248 words of memory out of 5000000
+ 27091 multiletter control sequences out of 15000+600000
+ 564401 words of font info for 57 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 77i,6n,79p,453b,516s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on heapreport.pdf (5 pages, 65708 bytes).
+ 77i,10n,79p,492b,516s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
+Output written on heapreport.pdf (6 pages, 106970 bytes).
 PDF statistics:
- 40 PDF objects out of 1000 (max. 8388607)
- 24 compressed objects within 1 object stream
+ 59 PDF objects out of 1000 (max. 8388607)
+ 36 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

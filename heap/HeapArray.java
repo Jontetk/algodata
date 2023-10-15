@@ -68,7 +68,7 @@ public class HeapArray {
                 sink(leftIndex);
             }
         }
-        if(rightIndex <= k && array[currentIndex]>array[rightIndex] ) {
+        else if(rightIndex <= k && array[currentIndex]>array[rightIndex] ) {
             if(leftIndex > k || array[leftIndex]>array[rightIndex]) {
             Integer temp = array[currentIndex];
             array[currentIndex] = array[rightIndex];
