@@ -21,7 +21,7 @@ public class Zip {
 
     public Zip(String file) {
 
-        data = new Node[10000];
+        data = new Node[9676];
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             String line;
             int i = 0;
@@ -35,8 +35,37 @@ public class Zip {
         }
     }
 
-    public linear(String zip) {
+    public Node linear(String zip) {
+        for (int index = 0; index < data.length ; index++) {
+            if (data[index].code.equals(zip)) {
+                return data[index];
+            }
+        }
+        return null;
+    }
+    public Node binary(String zip) {
+        int first = 0;
+        int last = data.length-1;
+        int index = (last+first)/2 ;
+        while (true) {
+
+            index = (last+first)/2 ;
+            if (data[index].code.equals(zip)) {
+            break;
+        }
+        if (Integer.valueOf(data[index].code.replaceAll(" ","")) < Integer.valueOf(zip.replaceAll(" ","")) && index < last) {
+            first = index+1;
+            continue;
+        }
+        if (Integer.valueOf(data[index].code.replaceAll(" ","")) > Integer.valueOf(zip.replaceAll(" ","")) && index > first) {
+
+            last = index-1;
+            continue;
+        }
+        return null;
+        
+        }
+        return data[index];
         
     }
-
 }
