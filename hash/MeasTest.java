@@ -11,6 +11,10 @@ public class MeasTest {
         mess.collisions(18000);
         mess.collisions(19000); 
         mess.collisions(20000);
+        mess.collisions(12345);
+        mess.collisions(13513);
+        mess.collisions(13600);
+        mess.collisions(14000);
 
 
     }
