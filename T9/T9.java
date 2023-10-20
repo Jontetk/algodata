@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class T9 {
     Node root;
     private class Node {
@@ -7,9 +9,36 @@ public class T9 {
             next = new Node[27];
             valid = false;
         }
-        public void add(String word) {
-            word.charAt(0);
+        public void add(String word) {  
+            if(word.length() == 0) {
+                this.valid = true;
+                return;
+            }
+            int code = code(word.charAt(0));         
+            if(this.next[code] == null) {
+                this.next[code] = new Node();
+            } 
+            this.next[code].add(word.substring(1));            
+        }
+        public void collect(String sequence, String word, ArrayList<String> arrList) {
+
+            if(sequence.length() == 0) {
+                if(this.valid)
+                    arrList.add(word);
+                return;
+            }
+            int index = keyToInd(sequence.charAt(0))*3;
             
+            if(next[index] != null) {
+                next[index].collect(sequence.substring(1),word +uncode(index), arrList);
+            }
+            if(next[index+1] != null) {
+                next[index+1].collect(sequence.substring(1),word +uncode(index+1), arrList);
+            }
+            if(next[index+2] != null) {
+                next[index+2].collect(sequence.substring(1),word +uncode(index+2), arrList);
+            }
+
         }
 
 
@@ -18,7 +47,7 @@ public class T9 {
         root = new Node();
     }
 
-    }
+    
 
     private static int code(char w) {
         switch (w) {
@@ -81,7 +110,7 @@ public class T9 {
         return -1;
         }
         
-    private static char decode (int value) {
+    private static char uncode (int value) {
         switch(value) {
             case 0 :
                 return 'a';
@@ -163,7 +192,7 @@ public class T9 {
         }
         return -1;
     }
-    private static char charToKey (char character) {
+    public static char charToKey (char character) {
         switch(character) {
             case 'a':
             case 'b':
@@ -207,6 +236,12 @@ public class T9 {
     }
     public void add(String word) {
         root.add(word);
+    }
+    public ArrayList<String> decode(String sequence) {
+        ArrayList<String> arrList = new ArrayList<String>();
+        root.collect(sequence, "",arrList);
+        return arrList;
+
     }
 
 }
