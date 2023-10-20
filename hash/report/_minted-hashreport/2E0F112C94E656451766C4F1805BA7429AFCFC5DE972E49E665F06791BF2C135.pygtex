@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{Integer}\PYG{+w}{ }\PYG{n}{code}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{Integer}\PYG{p}{.}\PYG{n+na}{valueOf}\PYG{p}{(}\PYG{n}{row}\PYG{o}{[}\PYG{l+m+mi}{0}\PYG{o}{]}\PYG{p}{.}\PYG{n+na}{replaceAll}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}s\PYGZdq{}}\PYG{p}{,}\PYG{l+s}{\PYGZdq{}\PYGZdq{}}\PYG{p}{)))}\PYG{o}{\PYGZpc{}}\PYG{n}{mod}\PYG{p}{;}
+\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{data}\PYG{o}{[}\PYG{n}{code}\PYG{o}{]}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{k+kc}{null}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n}{data}\PYG{o}{[}\PYG{n}{code}\PYG{o}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{Bucket}\PYG{p}{();}
+\PYG{p}{\PYGZcb{}}
+\PYG{n}{data}\PYG{o}{[}\PYG{n}{code}\PYG{o}{]}\PYG{p}{.}\PYG{n+na}{add}\PYG{p}{(}\PYG{k}{new}\PYG{+w}{ }\PYG{n}{Node}\PYG{p}{(}\PYG{n}{Integer}\PYG{p}{.}\PYG{n+na}{valueOf}\PYG{p}{(}\PYG{n}{row}\PYG{o}{[}\PYG{l+m+mi}{0}\PYG{o}{]}\PYG{p}{.}\PYG{n+na}{replaceAll}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZbs{}s\PYGZdq{}}\PYG{p}{,}\PYG{l+s}{\PYGZdq{}\PYGZdq{}}\PYG{p}{)),}\PYG{n}{row}\PYG{o}{[}\PYG{l+m+mi}{1}\PYG{o}{]}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Integer}\PYG{p}{.}\PYG{n+na}{valueOf}\PYG{p}{(}\PYG{n}{row}\PYG{o}{[}\PYG{l+m+mi}{2}\PYG{o}{]}\PYG{p}{)));}
+\end{Verbatim}

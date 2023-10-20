@@ -25,8 +25,51 @@ This assignment consisted of creating different ways to looking up data, first u
 The first parts of the Implementation was to simply implement a search algorithm to search for the specific item in the array of items. The search algorithm that was used was both the linear and binary search from the previous assignment, the linear search was changed so that it used .equals instead of == when checking if the item was the correct one 
 the binary search was changed so that the string was turned into an integer to see if it was larger than or smaller than the wanted value, as all the numbers were sorted. 
 The algorithms were later changed to take Integers as inputs and the conversion from String to Integer happened when the value was saved. 
-
-
+The third way the method for lookup was made in the assignment was to have a large array which should be able to contain all the items, in this case the array size of 100000 was chosen. Then the lookup method only checked at that spot in the array.
+The final two Implementations were using hash. The first one was using buckets and the second one used a single array and put the values with the same modulo value after each other in the array. But first the collisions for the hashes were meassured for different mod values. 
+The bucket Implementation worked by having a bucket class which contained an array and then an add and lookup method. The bucket also contained an index variable to know where the next free space in the bucket is. 
+The add method works by first checking if the bucket needs to be increased. This is done by checking if the index is larger or equal to the size of the bucket. If it is the bucket size is increased by creating a new array that is twice as large and then copyinhg all elements to the new array and finally setting the new array as the bucket array. Then 
+the node to be added is put into the bucket at the index position and the index is increased. 
+\begin{minted}{java}
+public void add(Node node) {
+    if (indx >= bucket.length) {
+        Node[] newBucket = new Node[2*bucket.length];
+        for (int i = 0; i<bucket.length;i++) {
+            newBucket[i] = bucket[i];
+        }
+        bucket = newBucket;
+    }
+    bucket[indx] = node;
+    indx++;
+}
+\end{minted}
+The lookup method is extremely simple as it is just a linear search that searches through the bucket until the element that was inputted is found. The reason that linear search is used is because it is unknown if the 
+elements in the bucket are sorted, and as the bucket should be small depending on what the mod value is there should not be a large time penalty for the linear search.
+\begin{minted}{java}
+public Node lookup(Integer zip) {
+for (int index = 0; index < bucket.length ; index++) {
+    if (bucket[index].zip.equals(zip)) {
+        return bucket[index];
+    }
+}
+return null;
+}
+\end{minted}
+Then when actually adding something a code is created, in this case the code is the first column of the row, then it is taken modulo the selected mod value, in this case 10000. Then there is a check if the data array is empty where the node should be placed, if it is a new bucket is created there. Then 
+the bucket in the code index of the data array gets the new node consisting of the data in the line added to it using the add method of the bucket. 
+\begin{minted}{java}
+Integer code = (Integer.valueOf(row[0].replaceAll("\\s","")))%mod;
+if (data[code] == null) {
+    data[code] = new Bucket();
+}
+data[code].add(new Node(Integer.valueOf(row[0].replaceAll("\\s","")),row[1], Integer.valueOf(row[2])));
+\end{minted} 
+The lookup method works by running lookup on the bucket in the chosen zip value modulo mod index of the data array. 
+\begin{minted}{java}
+public Node lookup(Integer zip) {
+    return data[zip%mod].lookup(zip);
+}
+\end{minted}
 
 
 \section*{Benchmark}
