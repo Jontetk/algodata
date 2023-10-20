@@ -18,7 +18,7 @@ public class HashBetter {
         }
     }
 
-    private void add(Node nod,Integer code) {
+    private void add(Node node,Integer code) {
         int ind = code;
         while(data[ind] != null && ind+1 != data.length) {
             ind++;
@@ -29,10 +29,10 @@ public class HashBetter {
                 newData[i] = data[i];
             }
             data = newData;
-            add(nod,ind+1);
+            add(node,ind+1);
         }
         else {
-            data[ind] = nod;
+            data[ind] = node;
         }
     }
 
@@ -56,9 +56,13 @@ public class HashBetter {
     public Node lookup(Integer zip) {
     
         int ind = zip%mod;
-        while(!(data[ind].zip.equals(zip))) {
+        while(!(data[ind].zip.equals(zip))&&ind < data.length) {
             ind++;
         }
-        return data[ind];
+        if(ind < data.length)
+            return data[ind];
+        
+        else
+            return null;
     }
 }
