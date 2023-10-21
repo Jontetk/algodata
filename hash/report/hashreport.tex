@@ -110,11 +110,80 @@ public Node lookup(Integer zip) {
 }    
 \end{minted}
 \section*{Benchmark}
+The first benchmark for the assignment was to compare binary and linear search when searching for an item in the array.
+Here it turned out that as usual the linear search is great for the first element but extremely bad for the last, while the binary search is about the same for both. See table below.
+\begin{table}[h]
+    \begin{center}
+    \scalebox{0.8}{
+    \begin{tabular}{c|c|c|c}
+    \textbf{linear 111 15({\textmu}s)}& \textbf{linear 984 99({\textmu}s)} & \textbf{binary 111 15({\textmu}s)}& \textbf{binary 984 99({\textmu}s)}\\
+    \hline
+    4.9   &   85.5  &     58.4&      37.9  \\
+    \end{tabular}
+    }
+    \caption{Results from the benchmark of linear compared to binary when looking for zip}
+    \label{tab:table1}
+    \end{center}
 
+\end{table}
+\newline
+\FloatBarrier{\noindent}
+The second benchmark was to compare binary search with a large array. Here the array was obviously faster as the binary search had to search while the array can look up an index almost instantly. 
+The binary mehod here used an Integer instead of a String as the previous benchmark.
 
+\begin{table}[h]
+    \begin{center}
+    \scalebox{0.8}{
+    \begin{tabular}{c|c|c|c}
+    \textbf{binary 111 15({\textmu}s)}& \textbf{binary 984 99({\textmu}s)} & \textbf{array 111 15({\textmu}s)}& \textbf{array 984 99({\textmu}s)}\\
+    \hline
+    10.1   &   7.9 &     1.8&      2.1  \\
+    \end{tabular}
+    }
+    \caption{Results from the benchmark of binary search compared to looking directly in an array}
+    \label{tab:table2}
+    \end{center}
+\end{table}
 
+\FloatBarrier{\noindent}
+The final two benchmarks use the hash method with modulo, here mod is 10000 as it when meassuring the collisions only had a couple of 
+more collisions when meassuring. The third benchmark compared the bucket Implementation to the array Implementation. See table.
 
+\begin{table}[h]
+    \begin{center}
+    \scalebox{0.8}{
+    \begin{tabular}{c|c|c|c}
+    \textbf{bucket 111 15({\textmu}s)}& \textbf{bucket 984 99({\textmu}s)} & \textbf{array 111 15({\textmu}s)}& \textbf{array 984 99({\textmu}s)}\\
+    \hline
+    12.9   &   13.4 &     2.3&      2.9  \\
+    \end{tabular}
+    }
+    \caption{Results from the benchmark of bucket compared to looking directly in an array}
+    \label{tab:table3}
+    \end{center}
+\end{table}
 
+\FloatBarrier{\noindent}
+It seems that the bucket is slower, however is should take less memory as the array Implementation has to be larger to save the data without collisions. The last benchmark was the bucket method compared to the 
+method of using a single array and increasing the index from the hashed index. 
+\begin{table}[h]
+    \begin{center}
+    \scalebox{0.8}{
+    \begin{tabular}{c|c|c|c}
+    \textbf{bucket 111 15({\textmu}s)}& \textbf{bucket 984 99({\textmu}s)} & \textbf{hash a 111 15({\textmu}s)}& \textbf{hash a 984 99({\textmu}s)}\\
+    \hline
+    12.9   &   13.4 &     12.4&      18.6  \\
+    \end{tabular}
+    }
+    \caption{Results from the benchmark of the two methods of saving hashed data}
+    \label{tab:table4}
+    \end{center}
+\end{table}
+
+\FloatBarrier{\noindent}
+\newline
+It is interesting that the 984 99 takes longer time in the single array, this should not be the case as they both should start at the same index and use something similar to linear search when looking for the item. The single array should probably even be a 
+bit faster as it is in the 111 15, this is because it does not have the extra method call which the bucket requires.
 
 
 \end{document}
