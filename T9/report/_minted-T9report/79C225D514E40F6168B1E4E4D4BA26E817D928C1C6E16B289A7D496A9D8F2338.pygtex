@@ -1,0 +1,18 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kd}{public}\PYG{+w}{ }\PYG{k+kd}{static}\PYG{+w}{ }\PYG{k+kt}{char}\PYG{+w}{ }\PYG{n+nf}{charToKey}\PYG{+w}{ }\PYG{p}{(}\PYG{k+kt}{char}\PYG{+w}{ }\PYG{n}{character}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{switch}\PYG{p}{(}\PYG{n}{character}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{k}{case}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}a\PYGZsq{}}\PYG{p}{:}
+\PYG{+w}{        }\PYG{k}{case}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}b\PYGZsq{}}\PYG{p}{:}
+\PYG{+w}{        }\PYG{k}{case}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}c\PYGZsq{}}\PYG{p}{:}
+\PYG{+w}{            }\PYG{k}{return}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}1\PYGZsq{}}\PYG{p}{;}
+\PYG{+w}{        }\PYG{p}{:}
+\PYG{+w}{        }\PYG{p}{:}
+\PYG{+w}{        }\PYG{p}{:}
+\PYG{+w}{        }\PYG{k}{case}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}å\PYGZsq{}}\PYG{p}{:}
+\PYG{+w}{        }\PYG{k}{case}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}ä\PYGZsq{}}\PYG{p}{:}
+\PYG{+w}{        }\PYG{k}{case}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}ö\PYGZsq{}}\PYG{p}{:}
+\PYG{+w}{            }\PYG{k}{return}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}9\PYGZsq{}}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}
