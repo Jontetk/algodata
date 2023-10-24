@@ -1,0 +1,189 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{minted}
+\usepackage{graphicx}
+\usepackage{placeins}
+
+\begin{document}
+
+
+\title{
+    \textbf{Hash report}
+}
+\author{Jonathan Karlsson}
+\date{Fall 2023}
+
+\maketitle
+
+\section*{Introduction}
+This assignment consisted of creating different ways to looking up data, first using search, then using the item as index and finally hashing the item and using the hash as a index.
+
+
+\section*{Implementation}
+The first parts of the Implementation was to simply implement a search algorithm to search for the specific item in the array of items. The search algorithm that was used was both the linear and binary search from the previous assignment, the linear search was changed so that it used .equals instead of == when checking if the item was the correct one 
+the binary search was changed so that the string was turned into an integer to see if it was larger than or smaller than the wanted value, as all the numbers were sorted. 
+The algorithms were later changed to take Integers as inputs and the conversion from String to Integer happened when the value was saved. 
+The third way the method for lookup was made in the assignment was to have a large array which should be able to contain all the items, in this case the array size of 100000 was chosen. Then the lookup method only checked at that spot in the array.
+The final two Implementations were using hash. The first one was using buckets and the second one used a single array and put the values with the same modulo value after each other in the array. But first the collisions for the hashes were meassured for different mod values. 
+The bucket Implementation worked by having a bucket class which contained an array and then an add and lookup method. The bucket also contained an index variable to know where the next free space in the bucket is. 
+The add method works by first checking if the bucket needs to be increased. This is done by checking if the index is larger or equal to the size of the bucket. If it is the bucket size is increased by creating a new array that is twice as large and then copyinhg all elements to the new array and finally setting the new array as the bucket array. Then 
+the node to be added is put into the bucket at the index position and the index is increased. 
+\begin{minted}{java}
+public void add(Node node) {
+    if (indx >= bucket.length) {
+        Node[] newBucket = new Node[2*bucket.length];
+        for (int i = 0; i<bucket.length;i++) {
+            newBucket[i] = bucket[i];
+        }
+        bucket = newBucket;
+    }
+    bucket[indx] = node;
+    indx++;
+}
+\end{minted}
+The lookup method is extremely simple as it is just a linear search that searches through the bucket until the element that was inputted is found. The reason that linear search is used is because it is unknown if the 
+elements in the bucket are sorted, and as the bucket should be small depending on what the mod value is there should not be a large time penalty for the linear search.
+\begin{minted}{java}
+public Node lookup(Integer zip) {
+for (int index = 0; index < bucket.length ; index++) {
+    if (bucket[index].zip.equals(zip)) {
+        return bucket[index];
+    }
+}
+return null;
+}
+\end{minted}
+Then when actually adding something a code is created, in this case the code is the first column of the row, then it is taken modulo the selected mod value, in this case 10000. Then there is a check if the data array is empty where the node should be placed, if it is a new bucket is created there. Then 
+the bucket in the code index of the data array gets the new node consisting of the data in the line added to it using the add method of the bucket. 
+\begin{minted}{java}
+Integer code = (Integer.valueOf(row[0].replaceAll("\\s","")))%mod;
+if (data[code] == null) {
+    data[code] = new Bucket();
+}
+data[code].add(new Node(Integer.valueOf(row[0].replaceAll("\\s","")),row[1], Integer.valueOf(row[2])));
+\end{minted} 
+The lookup method works by running lookup on the bucket in the chosen zip value modulo mod index of the data array. 
+\begin{minted}{java}
+public Node lookup(Integer zip) {
+    return data[zip%mod].lookup(zip);
+}
+\end{minted}
+The second version of the hash function works by having a single array and when adding to a specific place the index gets increased until there is an empty spot.
+The add method works by taking a node and a code as arguments. Then setting a variable ind as the code, this is the index when navigating the array. Then ind is increased until there is either empty space or the index gets to the end of the array.
+If the index got to the end, the array gets copied over and then add gets run again with the same node and the code as ind +1 which would be the first space after the previous array in the new array. finally if the index did not get to the end of the array, 
+the node is saved to the index position of the array. 
+\begin{minted}{java}
+private void add(Node node,Integer code) {
+    int ind = code;
+    while(data[ind] != null && ind+1 != data.length) {
+        ind++;
+    }
+    if(ind+1 == data.length) {
+        Node[] newData = new Node[2*data.length];
+        for (int i = 0; i<data.length;i++) {
+            newData[i] = data[i];
+        }
+        data = newData;
+        add(node,ind+1);
+    }
+    else {
+        data[ind] = node;
+    }
+}
+\end{minted}
+The lookup works by first getting an index using the inputted zip modulo mod, then going to that index in the array and going forwards until the zip is found or the ind gets to the end of the array.
+if the index did not get to the end of the array the node in the index position gets returned otherwise null is returned.
+\begin{minted}{java}
+public Node lookup(Integer zip) {
+
+    int ind = zip%mod;
+    while(!(data[ind].zip.equals(zip))&&ind < data.length) {
+        ind++;
+    }
+    if(ind < data.length)
+        return data[ind];
+    
+    else
+        return null;
+}    
+\end{minted}
+\section*{Benchmark}
+The first benchmark for the assignment was to compare binary and linear search when searching for an item in the array.
+Here it turned out that as usual the linear search is great for the first element but extremely bad for the last, while the binary search is about the same for both. See table below.
+\begin{table}[h]
+    \begin{center}
+    \scalebox{0.8}{
+    \begin{tabular}{c|c|c|c}
+    \textbf{linear 111 15({\textmu}s)}& \textbf{linear 984 99({\textmu}s)} & \textbf{binary 111 15({\textmu}s)}& \textbf{binary 984 99({\textmu}s)}\\
+    \hline
+    4.9   &   85.5  &     58.4&      37.9  \\
+    \end{tabular}
+    }
+    \caption{Results from the benchmark of linear compared to binary when looking for zip}
+    \label{tab:table1}
+    \end{center}
+
+\end{table}
+\newline
+\FloatBarrier{\noindent}
+The second benchmark was to compare binary search with a large array. Here the array was obviously faster as the binary search had to search while the array can look up an index almost instantly. 
+The binary mehod here used an Integer instead of a String as the previous benchmark.
+
+\begin{table}[h]
+    \begin{center}
+    \scalebox{0.8}{
+    \begin{tabular}{c|c|c|c}
+    \textbf{binary 111 15({\textmu}s)}& \textbf{binary 984 99({\textmu}s)} & \textbf{array 111 15({\textmu}s)}& \textbf{array 984 99({\textmu}s)}\\
+    \hline
+    10.1   &   7.9 &     1.8&      2.1  \\
+    \end{tabular}
+    }
+    \caption{Results from the benchmark of binary search compared to looking directly in an array}
+    \label{tab:table2}
+    \end{center}
+\end{table}
+
+\FloatBarrier{\noindent}
+The final two benchmarks use the hash method with modulo, here mod is 10000 as it when meassuring the collisions only had a couple of 
+more collisions when meassuring. The third benchmark compared the bucket Implementation to the array Implementation. See table.
+
+\begin{table}[h]
+    \begin{center}
+    \scalebox{0.8}{
+    \begin{tabular}{c|c|c|c}
+    \textbf{bucket 111 15({\textmu}s)}& \textbf{bucket 984 99({\textmu}s)} & \textbf{array 111 15({\textmu}s)}& \textbf{array 984 99({\textmu}s)}\\
+    \hline
+    12.9   &   13.4 &     2.3&      2.9  \\
+    \end{tabular}
+    }
+    \caption{Results from the benchmark of bucket compared to looking directly in an array}
+    \label{tab:table3}
+    \end{center}
+\end{table}
+
+\FloatBarrier{\noindent}
+It seems that the bucket is slower, however is should take less memory as the array Implementation has to be larger to save the data without collisions. The last benchmark was the bucket method compared to the 
+method of using a single array and increasing the index from the hashed index. 
+\begin{table}[h]
+    \begin{center}
+    \scalebox{0.8}{
+    \begin{tabular}{c|c|c|c}
+    \textbf{bucket 111 15({\textmu}s)}& \textbf{bucket 984 99({\textmu}s)} & \textbf{hash a 111 15({\textmu}s)}& \textbf{hash a 984 99({\textmu}s)}\\
+    \hline
+    12.9   &   13.4 &     12.4&      18.6  \\
+    \end{tabular}
+    }
+    \caption{Results from the benchmark of the two methods of saving hashed data}
+    \label{tab:table4}
+    \end{center}
+\end{table}
+
+\FloatBarrier{\noindent}
+\newline
+It is interesting that the 984 99 takes longer time in the single array, this should not be the case as they both should start at the same index and use something similar to linear search when looking for the item. The single array should probably even be a 
+bit faster as it is in the 111 15, this is because it does not have the extra method call which the bucket requires.
+
+
+\end{document}

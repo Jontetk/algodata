@@ -3,13 +3,15 @@ import java.io.FileReader;
 
 public class Hash {
 
-    Node[] data;
+    Bucket[] data;
     int max;
     int mod;
     public class Node {
+        Integer zip;
         String name;
         Integer pop;
-        public Node(String name, Integer pop) {
+        public Node(Integer zip,String name, Integer pop) {
+            this.zip = zip;
             this.name = name;
             this.pop = pop;
         }
@@ -32,21 +34,34 @@ public class Hash {
             bucket[indx] = node;
             indx++;
         }
+        public Node lookup(Integer zip) {
+            for (int index = 0; index < bucket.length ; index++) {
+                if (bucket[index].zip.equals(zip)) {
+                    return bucket[index];
+                }
+            }
+            return null;
+            
+            
+
+        }
 
     }
 
 
     public Hash(String file) {
         mod = 10000;
-        data = new Node[mod];
+        data =new Bucket[mod];
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             String line;
             int i = 0;
             while ((line = br.readLine()) != null) {
                 String[] row = line.split(",");
-                Integer code = Integer.valueOf(row[0].replaceAll("\\s",""));
-                data[code] = new Node( row[1], Integer.valueOf(row[2]));
-
+                Integer code = (Integer.valueOf(row[0].replaceAll("\\s","")))%mod;
+                if (data[code] == null) {
+                    data[code] = new Bucket();
+                }
+                data[code].add(new Node(Integer.valueOf(row[0].replaceAll("\\s","")),row[1], Integer.valueOf(row[2])));
             }
             max = i - 1;
         } catch (Exception e) {
@@ -54,7 +69,8 @@ public class Hash {
         }
     }
 
-    public Node lookup(int zip) {
-        return (data[zip]);
+    public Node lookup(Integer zip) {
+        
+        return data[zip%mod].lookup(zip);
     }
 }

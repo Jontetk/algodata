@@ -1,0 +1,129 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{minted}
+\usepackage{graphicx}
+\usepackage{placeins}
+
+\begin{document}
+
+
+\title{
+    \textbf{T9 report}
+}
+\author{Jonathan Karlsson}
+\date{Fall 2023}
+
+\maketitle
+
+\section*{Introduction}
+The T9 assignment was to implement the T9 system, where a word is suggested depending on the keys that is inputted. The letters q and w were excluded in the assignment.
+\section*{Implementation}
+The T9 was implemented by first creating a constructor which only creates the root for the T9 as a new Node. Then four different 
+support methods were created these were code, uncode, keyToInd and charToKey. Some repeating parts of the methods is cut out using three : to not take up too much space in this report.
+The first method code took a char as argument and then using a switch statement returned 0 to 26 or -1 if the char was not in the standard swedish alphabet a...ö. 
+
+\begin{minted}{java}
+private static int code(char w) {
+    switch (w) {
+        case 'a' :
+            return 0;
+        case 'b' :
+            return 1;
+        case 'c' :
+            return 2;
+        case 'd' :
+            return 3;
+        :
+        :
+        :
+        case 'ä' :
+            return 25;
+        case 'ö' :
+            return 26;
+    }
+    return -1;
+}    
+\end{minted}
+The second method was the uncode which did the opposite to the code method, taking in an int and returning a char depending on the value of the int. Then 
+if the value was invalid, which means that it did not correspond to any letter the 0 char was returned.
+\begin{minted}{java}
+private static char uncode (int value) {
+    switch(value) {
+        case 0 :
+            return 'a';
+        case 1 :
+            return 'b';
+        case 2 :
+            return 'c';
+        case 3 :
+            return 'd';
+        :
+        :
+        :
+        case 25 : 
+            return 'ä';
+        case 26 :
+            return 'ö';
+    }
+    return 0;
+}
+\end{minted}
+The third method takes a key character and returns an index from 0 to 8 depending on what key was inserted, this is so that a sequence of keys can be used as a string later on. 
+If the key was not 0 to 9 then -1 is returned.
+\begin{minted}{java}
+private static int keyToInd(char key) {
+    switch(key) {
+        case '1' :
+            return 0;
+        :
+        :
+        :
+        case '9' :
+            return 8;
+    }
+    return -1;
+}
+\end{minted}
+The final method, charToKey is used for testing so that a word can be turned into sequence of keys, this is why it is the only one of the support methods that is public. 
+This method takes in a char and then returns key chars depending on what group the original character was in, groups mean "a,b,c","d,e,f" and so on. If 
+the character was not in a group the 0 char is returned.
+\begin{minted}{java}
+public static char charToKey (char character) {
+    switch(character) {
+        case 'a':
+        case 'b':
+        case 'c':
+            return '1';
+        :
+        :
+        :
+        case 'å':
+        case 'ä':
+        case 'ö':
+            return '9';
+    }
+    return 0;
+}
+\end{minted}
+There were two more methods in the T9 add and decode. The add method simply calls root with add using the word.
+The decode method takes in a sequence then creates a new ArrayList, then calls colloct on the root using the sequence an empty string and the ArrayList. Finally the ArrayList is returned.
+\begin{minted}{java}
+public void add(String word) {
+    root.add(word);
+}
+public ArrayList<String> decode(String sequence) {
+    ArrayList<String> arrList = new ArrayList<String>();
+    root.collect(sequence, "",arrList);
+    return arrList;
+}
+\end{minted}
+The T9 also contains a private class Node. This Node contains an array of Nodes called next, and a boolean called valid.
+The node also contains three different methods the constructor, an add method and a collect method. 
+The constructor simply creates the next array as an array of Nodes with size 27. It also sets valid to false.
+\newline
+The add method works by
+
+
+\end{document}
