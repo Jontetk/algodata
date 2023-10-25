@@ -13,6 +13,6 @@ public class City {
         connections.add(new Connection(nxt, dst));
         nxt.connections.add(new Connection(this, dst));
     }
-    
+
 
 }

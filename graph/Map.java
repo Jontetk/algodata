@@ -49,7 +49,7 @@ public class Map {
         }
     }
 
-    private City lookup(String name) {
+    public City lookup(String name) {
         int localcoll = 0;
         int ind = hash(name);
         if(cities[ind] == null) {
