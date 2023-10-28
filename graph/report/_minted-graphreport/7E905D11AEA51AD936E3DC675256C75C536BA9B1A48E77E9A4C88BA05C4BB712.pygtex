@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kd}{public}\PYG{+w}{ }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{connect}\PYG{p}{(}\PYG{n}{City}\PYG{+w}{ }\PYG{n}{nxt}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{dst}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{this}\PYG{p}{.}\PYG{n+na}{connections}\PYG{p}{.}\PYG{n+na}{add}\PYG{p}{(}\PYG{k}{new}\PYG{+w}{ }\PYG{n}{Connection}\PYG{p}{(}\PYG{n}{nxt}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{dst}\PYG{p}{));}
+\PYG{+w}{    }\PYG{n}{nxt}\PYG{p}{.}\PYG{n+na}{connections}\PYG{p}{.}\PYG{n+na}{add}\PYG{p}{(}\PYG{k}{new}\PYG{+w}{ }\PYG{n}{Connection}\PYG{p}{(}\PYG{k}{this}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{dst}\PYG{p}{));}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

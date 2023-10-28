@@ -1,0 +1,46 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{minted}
+\usepackage{graphicx}
+\usepackage{placeins}
+
+\begin{document}
+
+
+\title{
+    \textbf{Graph report}
+}
+\author{Jonathan Karlsson}
+\date{Fall 2023}
+
+\maketitle
+
+\section*{Introduction}
+
+This assignment was to first create a map as a graph and then implement different algorithms to find the shortest path between two cities on the map.
+
+\section*{Implementation}
+The first part that had to be implemented was the Map class. This class contained the actual map consisting of cities and connections. To implement the Map a City class and a Connection class. 
+The City class was implemented so that it has two variables, a name of the city consisting of the String aswell as an ArrayList containing all the connections. The city also has a constructor which creates the ArrayList as a new arraylist aswell as sets the name as the name 
+inputted as argument to the constructor. 
+\begin{minted}{java}
+public City(String name) {
+    this.connections = new ArrayList<Connection>();
+    this.name = name;
+}
+\end{minted}
+The city also has a connect method which connect the city to another city. This works by first adding a new connection between this city and the next city, aswell as the distance. Then a connection is also added to the 
+next citys connections which goes to this city, which will have the same distance. this is because both cities have to connect to each other.
+\begin{minted}{java}
+public void connect(City nxt, int dst) {
+    this.connections.add(new Connection(nxt, dst));
+    nxt.connections.add(new Connection(this, dst));
+}    
+\end{minted}
+The Connection class also has to be implemented. This class only consisits of the city that is the destinationm, aswell as the time it takes in minutesm, and its constructor just sets these values.
+
+
+
+\end{document}
