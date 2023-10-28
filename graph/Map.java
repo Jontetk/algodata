@@ -63,8 +63,6 @@ public class Map {
                 add(name, ind);
                 collisions += localcoll;
             }
-            
-
         }
         if(ind < cities.length)
             return cities[ind];

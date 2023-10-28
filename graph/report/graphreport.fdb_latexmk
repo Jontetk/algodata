@@ -1,10 +1,15 @@
 # Fdb version 4
-["pdflatex"] 1698491923 "f:/SKOLADOKUMENT/id1021/algodata/graph/report/graphreport.tex" "graphreport.pdf" "graphreport" 1698491925 0
+["pdflatex"] 1698498323 "f:/SKOLADOKUMENT/id1021/algodata/graph/report/graphreport.tex" "graphreport.pdf" "graphreport" 1698498324 0
   "_minted-graphreport/48E0E0D25A4A843F0DD5995851870EB8536BA9B1A48E77E9A4C88BA05C4BB712.pygtex" 1698491922 516 2406474bb94c49046f600278acc6b31c ""
+  "_minted-graphreport/5F103D368C1ADB1384AEFB56E92D7887536BA9B1A48E77E9A4C88BA05C4BB712.pygtex" 1698495133 2041 0dc494c6c8ad4406ee8978dd3f9e4845 ""
+  "_minted-graphreport/7A511B2291009129F41EAE4298AEB71D536BA9B1A48E77E9A4C88BA05C4BB712.pygtex" 1698496919 4104 519b42b45e321284ad5ee417ee2568df ""
   "_minted-graphreport/7E905D11AEA51AD936E3DC675256C75C536BA9B1A48E77E9A4C88BA05C4BB712.pygtex" 1698491922 702 dcc92c9fe8b1eed46283fffd6f81cf7f ""
+  "_minted-graphreport/8D72471113456FDB3CAF79FE5E99AF09536BA9B1A48E77E9A4C88BA05C4BB712.pygtex" 1698495931 2666 4b70324f2c3ac94b708fefc16dc2346c ""
   "_minted-graphreport/default.pygstyle" 1698491922 6530 74aba51736a5bc6590f8f7dd413c6f27 ""
   "c:/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1693252376 3524 cb3e574dea2d1052e39280babc910dc8 ""
+  "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1693250389 1328 c834bbb027764024c09d3d2bf908b5f0 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1693250389 1324 c910af8c371558dc20f2d7822f66fe64 ""
+  "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm" 1693250389 1528 abec98dbc43e172678c11b3b9031252a ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm" 1693250389 1524 4414a8315f39513458b80dfc63bff03a ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm" 1693250389 1512 f21f83efb36853c0b70002322c1ab3ad ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm" 1693250389 1520 eccf95517727cb11801f4f1aee3a21b4 ""
@@ -17,6 +22,7 @@
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm" 1693250389 1116 933a60c408fc0a863a92debe84b2d294 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm" 1693250389 1120 8b7d695260f3cff42e636090a8002094 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm" 1693250389 768 1321e9409b4137d6fb428ac9dc956269 ""
+  "c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb" 1693248755 34811 78b52f49e893bcba91bd7581cdc144c0 ""
   "c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1693248755 32080 340ef9bf63678554ee606688e7b5339d ""
   "c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1693248756 35752 024fb6c41858982481f6968b5fc26508 ""
   "c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1693248756 32722 d7379af29a190c3f453aba36302ff5a9 ""
@@ -65,9 +71,9 @@
   "c:/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1693259328 4703417 774bacf0b829d2915046f57da58dbddc ""
   "c:/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1693259685 8172988 01ef39466c61823c9869c246c4e8e439 ""
   "c:/texlive/2023/texmf.cnf" 1693259237 713 e69b156964470283e0530f5060668171 ""
-  "f:/SKOLADOKUMENT/id1021/algodata/graph/report/graphreport.tex" 1698491918 1905 3d886946b23aa6fac52de0835c3e21b0 ""
-  "graphreport.aux" 1698491924 230 dc01cb88dd4123191db01e9313c356e8 "pdflatex"
-  "graphreport.tex" 1698491918 1905 3d886946b23aa6fac52de0835c3e21b0 ""
+  "f:/SKOLADOKUMENT/id1021/algodata/graph/report/graphreport.tex" 1698498322 9299 5e7590d692cc9bca58d568eda351ce17 ""
+  "graphreport.aux" 1698498324 641 497d6c59785a4eca6a866b14bf4e68e7 "pdflatex"
+  "graphreport.tex" 1698498322 9299 5e7590d692cc9bca58d568eda351ce17 ""
   (generated)
   "graphreport.aux"
   "graphreport.log"

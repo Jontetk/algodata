@@ -28,22 +28,14 @@ public class Dijkstra {
     }
 
 
-    public ArrayList<City> shortest(City from, City to) {
+    public Integer shortest(City from, City to) {
         Path[] shortestPath = new Path[10];
         PriorityQueue<Path> queue = new PriorityQueue<Path>();
         queue.add(new Path(from, null, 0));
         while (true) {
         Path path = queue.remove();
         if(path.city == to){
-            Path prevPath = path;
-            ArrayList<City> arr = new ArrayList<City>();
-            while(prevPath.prev != null){
-                arr.add(prevPath.city);
-                City prevCity = prevPath.prev;
-                prevPath = shortestPath[prevCity.id];
-            }
-            arr.add(prevPath.city);
-            return arr;
+            return path.dist;
             
         }
         while(path.index >= shortestPath.length){
@@ -76,16 +68,13 @@ public class Dijkstra {
     }
     public static void main(String[] args) {
         Map map = new Map("europe.csv");
-        String from = "Valencia";
-        String to = "Kiruna";
+        String from = "Göteborg";
+        String to = "Umeå";
         long t0 = System.nanoTime();
         Dijkstra pat = new Dijkstra();
-        ArrayList<City> dist = pat.shortest(map.lookup(from), map.lookup(to));
+        Integer dist = pat.shortest(map.lookup(from), map.lookup(to));
         long time = (System.nanoTime() - t0) / 1_000_000;
-        for(City city : dist) {
-            System.out.println(city.name);
-        }
-        System.out.println("shortest: " + "dist" + " min (" + time + " ms)"); 
+        System.out.println("shortest: " + dist + " min (" + time + " ms)"); 
     }
 
 }

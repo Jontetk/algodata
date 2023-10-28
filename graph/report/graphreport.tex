@@ -40,7 +40,120 @@ public void connect(City nxt, int dst) {
 }    
 \end{minted}
 The Connection class also has to be implemented. This class only consisits of the city that is the destinationm, aswell as the time it takes in minutesm, and its constructor just sets these values.
+The map class could now be implemented. The constructor for the map was constructed so that it goes through every line in the file and then looks up the first and the second function using the lookup method. finally the two cities are connected using connect on the first city with the second city.
+The lookup method is more interesting. It starts by first checking what the hash of the name it was given is, then it saves that as ind. Then it checks if there is anything in the index, if there is not, the add method is used to add the city. The add method is the same as in the hash assignment, changed a bit to work with City instead of Node. 
+Then while the city is not the same as the city in the current position and the end of the array has not been reached, the ind is moved forward. If the position of the index when it was moved forward is now null the city is added using the add method. Finally if the ind is smaller than the length of the cities array the city has been found or added so the city in the ind position is returned. The method also counts collisions that happen everytime the index has to be incereased. 
+Then the collisions are added to the total collisions when the city is added. The total collisions for the map of the trains.csv file was 6.
+\begin{minted}{java}
+public City lookup(String name) {
+    int localcoll = 0;
+    int ind = hash(name);
+    if(cities[ind] == null) {
+        add(name, ind);
+    }
 
+    while(!(cities[ind].name.equals(name))&&ind < cities.length) {
+        ind++;
+        localcoll++;
+        if(cities[ind] == null) {
+            add(name, ind);
+            collisions += localcoll;
+        }
+    }
+    if(ind < cities.length)
+        return cities[ind];
+    
+    else
+        return null;
+}
+\end{minted} 
+The naive solution to the path problem was simple. It works by first checking if max is smaller than 0 which would indicate it has run out of time. Then it checks if from is the same as to. which means that the city was found. Then it goes through every connection that is not null from the connections of the current city. 
+Then it calls itself but using the connection city as a from city, and the max minus the minutes to get to the connection as the max. Finally when it gets a result from itself it checks if there was a possibility to get to the city within the time, that the distance it took was not null. Then it checks if the distance was the shortest to get to the destination. If it was 
+shortest is set to the distance + the distance to the connection. Finally the shortest time is returned. This means that the method gets into a loop going to the same city over and over again until the max time runs out, which means it finally goes to a new city. 
+\begin{minted}{java}
+private static Integer shortest(City from, City to, Integer max) {
+    if (max < 0)
+        return null;
+    if (from == to)
+        return 0;
+    Integer shrt = null;
+    for (int i = 0; i < from.connections.size(); i++) {
+        if (from.connections.get(i) != null) {
+            Connection conn = from.connections.get(i);
+            Integer distance = shortest(conn.city, to, max-conn.minutes);
+            if(distance !=null)
+                if(shrt == null || shrt > distance + conn.minutes)
+                    shrt = distance+conn.minutes;
+        }
+    }
+    return shrt;
+} 
+\end{minted}
+The final solution to the problem in this assignment is the Paths solution. here the previous cities are saved so that it should not be possible to get stuck in a loop. 
+It starts in a similar way by checking if max is reached or if the destination was found. However as max can be null on the first try it is also checked in the first check that max is not null. 
+It then goes through the path array to check if the from city is already in the from array, if it is then null is returned. 
+Then from is added to the path array. The method then runs thrugh all the connections. The distance to a connected city is gotten by running the method again either with max as null, or as max as max-conn.minutes. Then if a path was succefully found it will be shorter that any previous paths so max is set to the shortest time and then a new short is checked to see if it is shorter than the previous short. if it is then the short is chanmged in the same way 
+as the naive implementation. Finally the last entry in path is removed and shrt is returned. The method can be called with max as null as it will set a max after it has run.
 
+\begin{minted}{java}
+private Integer shortest(City from, City to,Integer max) {
+    if(max != null && max < 0)
+        return null;
+    if(from == to)
+        return 0;
+    Integer shrt = null;
+    for (int i = 0; i < sp; i++) {
+        if (path[i] == from)
+            return null;
+    }
+    path[sp++] = from;
+    for (int i = 0; i < from.connections.size(); i++) {
+        if (from.connections.get(i) != null) {
+            Connection conn = from.connections.get(i);
 
+                Integer distance;
+                if(max != null)
+                    distance = this.shortest(conn.city, to,null);
+                else 
+                    distance = this.shortest(conn.city, to,null);
+            if(distance !=null) {
+                max = shrt;
+                if(shrt == null || shrt > distance + conn.minutes)
+                    shrt = distance+conn.minutes;
+            }
+            
+        }
+    }
+    path[sp--] = null;
+    return shrt;
+}
+\end{minted}
+\subsection*{Benchmarks}
+For benchmarking the paths between a couple of cities were tested. The reuslts of the becnhmark can be found in the table below.
+\begin{table}[h]
+    \begin{center}
+    \scalebox{0.75}{
+    \begin{tabular}{l|c|c|c|}
+    \textbf{Path} & \textbf{(Paths no max ms)} & \textbf{(Paths maxms)} & \textbf{(Naive ms)}\\
+    \hline
+    Malmö to Göteborg   &  193& 196& 5      \\
+    Göteborg to Stockholm   &  105& 54 &4      \\
+    Malmö to Stockholm &  204& 77 &4      \\
+    Stockholm to Sundsvall  &  142& 82 &1194\\
+    Stockholm Umeå    &  185& 129& 2343\\
+    Göteborg to Sundsvall &  174& 75 &3687\\
+    Sundsvall to Umeå &  430& 466& 2\\
+    Umeå to Göteborg   &  197& 168& 2\\
+    Göteborg to Umeå &  231& 107& -\\
+    \end{tabular}
+    }
+    \caption{The result of the paths between different cities}
+    \label{tab:table1}
+    \end{center}
+\end{table}
+interesting about this result is that the paths implementation takes around the same time every path, while the 
+naive is super fast on the close paths and super slow on the paths far away. This is probably becuase the paths implementation has to go through 
+every city in the path array each time to check if it is from which will take time, while the naive will instantly go to the next city and has found it. When the cities are far away, the naive gets stuck in so many loops between the same cities that 
+it takes a long time, even so long that Göteborg to Umeå took too long to get a result. The reason that it is easy to go from Umeå but har to go from Göteborg is because there is so many different cities close to Göteborg that it can get stuck in a loop on before it runs out of time while there are few paths from Umeå meaning it 
+has spent most of its max time going the meaningful path when it gets to places it can get looped in. 
 \end{document}

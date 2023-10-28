@@ -22,9 +22,10 @@ public class Naive {
 
     public static void main(String[] args) {
         Map map = new Map("trains.csv");
-        String from = args[0];
-        String to = args[1];
-        Integer max = Integer.valueOf(args[2]);
+        System.out.println(map.collisions);
+        String from = "Göteborg";
+        String to = "Umeå";
+        Integer max = 710;
         long t0 = System.nanoTime();
         Integer dist = shortest(map.lookup(from), map.lookup(to), max);
         long time = (System.nanoTime() - t0) / 1_000_000;
